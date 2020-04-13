@@ -1,0 +1,2 @@
+module Users::AppliancesHelper
+end

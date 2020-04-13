@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_143340) do
+ActiveRecord::Schema.define(version: 2020_04_13_084045) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,16 +25,34 @@ ActiveRecord::Schema.define(version: 2020_04_12_143340) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "appliances", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "category_id", null: false
+    t.string "maker", null: false
+    t.string "image_id", default: ""
+    t.string "product", null: false
+    t.string "model", null: false
+    t.integer "purchase_amount", default: 0, null: false
+    t.date "purchase_day", null: false
+    t.date "warranty_period", null: false
+    t.date "start_operation", null: false
+    t.integer "place", default: 0, null: false
+    t.integer "frequency", default: 0, null: false
+    t.text "detail", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "user_name", default: "", null: false
+    t.string "user_name", null: false
     t.integer "gender", default: 0, null: false
-    t.string "profile_image_id"
-    t.text "introduction"
+    t.string "profile_image_id", default: ""
+    t.text "introduction", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
