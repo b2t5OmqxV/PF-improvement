@@ -6,10 +6,6 @@ Rails.application.routes.draw do
       passwords: 'users/passwords'
   }
 
-  # scope module: :users do
-  #   root 'appliances#top'
-  # end
-
   scope module: :users do
     root 'homes#top'
   end
