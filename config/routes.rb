@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :notices, only: [:show]
     resources :users, only: [:index, :show, :edit, :update]
     get 'appliances/top' => 'appliances#top'
-    resources :appliances, except: :new 
+    resources :appliances, except: :new
   end
 
    devise_for :admins,controllers: {
