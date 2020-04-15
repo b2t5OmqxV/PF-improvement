@@ -5,6 +5,10 @@
 
 <h2>フォロー、フォロワーランキング</h2>
 
-<h2>ユーザー一覧</h2>
-
-<h2>最近の更新</h2>
+<h1>ユーザーの一覧</h1>
+<% @users.each do |user| %>
+<%= user.id %>
+<%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: 'no_image.jpg', size:"100x100") %>
+<%= user.user_name %>
+<%= link_to "詳細",  user_path(user.id) %>
+<% end %>

@@ -22,13 +22,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :パスワード（確認） %><br />
+    <%= f.label :パスワード再入力 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="select">
     <%= f.label :性別 %><br />
-    <%= f.select :gender, {無回答: 0, 男性: 1, 女性:2} %>
+    <%= f.select :gender, ['無回答', '男性', '女性'] %>
   </div>
 
   <div class="actions">
