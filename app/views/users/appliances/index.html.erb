@@ -1,0 +1,18 @@
+<h1>家電情報一覧</h1>
+
+<%= link_to '新規投稿', new_appliance_path %>
+<h1>カテゴリ</h1>
+
+<h1>お知らせ</h1>
+
+<h2>ランキング</h2>
+
+<h1>家電情報一覧</h1>
+<% @appliances.each do |appliance| %>
+<%= attachnent_image_tag(appliance, :image, :fill, 100, 100, fallback: 'no_image.jpg', size:'100x100') %>
+<%= appliance.user.user_name %>
+<p>カテゴリ</p>
+<%= appliance.maker %>
+<%= appliance.product %>
+<%= link_to '詳細', appliance_path(appliance.id) %>
+<% end %>

@@ -10,6 +10,57 @@
   </head>
 
   <body>
+    <haeder>
+      <ul>
+        <% if admin_signed_in? %>
+        <li>
+          <span><%= link_to 'お知らせ', admins_notices_path %></span>
+        </li>
+        <li>
+          <span><%= link_to 'ユーザー', admins_users_path %></span>
+        </li>
+        <li>
+          <span><%= link_to '家電', admins_appliances_path %></span>
+        </li>
+        <li>
+          <span><%= link_to 'カテゴリ', admins_categories_path %></span>
+        </li>
+        <li>
+          <span><%= link_to 'ログアウト', destroy_admin_session, method: :delete %></span>
+        </li>
+        <% elsif user_signed_in? %>
+        <li>
+          <span><%= link_to 'マイページ', user_path(current_user.id) %></span>
+        </li>
+        <li>
+          <span><%= link_to 'ユーザー', users_path %></span>
+        </li>
+        <li>
+          <span><%= link_to '家電', appliances_path %></span>
+        </li>
+        <li>
+          <span><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></span>
+        </li>
+        <% elsif request.fullpath != '/admins/sign_in' %>
+        <li>
+          <span><%= link_to '新規登録', new_user_registration_path %></span>
+        </li>
+        <li>
+          <span><%= link_to 'ログイン', new_user_session_path %></span>
+        </li>
+        <% else request.fullpath == '/admins/sign_in' %>
+        <li>
+          <span><%= link_to 'ログイン', new_admin_session_path %></span>
+        </li>
+        </ul>
+        <% end %>
+      </haeder>
+
     <%= yield %>
+
+    <footer>
+        <p>© 2020 Portfolio</p>
+    </footer>
+
   </body>
 </html>
