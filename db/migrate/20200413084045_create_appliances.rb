@@ -11,8 +11,8 @@ class CreateAppliances < ActiveRecord::Migration[5.2]
       t.date    :purchase_day,null: false
       t.date    :warranty_period,null: false
       t.date    :start_operation,null: false
-      t.integer :place,null: false, default: "0"
-      t.integer :frequency,null: false, default: "0"
+      t.string :place,null: false, default: "屋内:"
+      t.string :frequency,null: false, default: "ほぼ毎日(年中)"
       t.text    :detail,default: ""
 
       t.timestamps
