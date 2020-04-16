@@ -1,0 +1,16 @@
+<h1>家電情報詳細</h1>
+<p>カテゴリ</p>
+<%= attachment_image_tag(@appliance, :image, :fill, 100, 100, fallback: 'no_image.jpg', size:'100x100') %>
+<%= @appliance.maker %>
+<%= @appliance.product %>
+<%= @appliance.model %>
+<%= @appliance.purchase_amount %>
+<%= @appliance.purchase_day %>
+<%= @appliance.warranty_period %>
+<%= @appliance.start_operation %>
+<%= @appliance.plase %>
+<%= @appliance.frequency %>
+<% if @appliance.user == current_user %>
+<%= link_to '編集する', edit_admins_appliance_path %>
+<%= link_to '削除する', admins_appliance_path, method: :delete %>
+<% end %>

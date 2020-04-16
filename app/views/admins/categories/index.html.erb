@@ -1,0 +1,27 @@
+<h1>カテゴリ登録・一覧</h1>
+
+<%= form_for(@categorie_new, url:admins_categories_path) do |f| %>
+<div class='field'>
+  <%= f.label :カテゴリ名 %>
+  <%= f.text_field :category, class: 'category' %>
+</div>
+
+<div class='field'>
+  <%= f.label :有効寿命設定月数 %>
+  <%= f.text_field :effective_life, class: 'effective_life' %>
+</div>
+
+<div class='actions'>
+	  <%= f.submit '新規登録' %>
+</div>
+
+<% end %>
+
+<h2>カテゴリ一覧</h2>
+<% @categories.each do |categorie| %>
+<%= categorie.category %>
+<%= categorie.effective_life %>
+<%= link_to '編集',edit_admins_category_path(categorie.id) %>
+<%= link_to '削除',admins_category_path(categorie.id), method: :delete %>
+<% end %>
+

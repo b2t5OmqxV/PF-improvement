@@ -1,0 +1,10 @@
+<h1>お知らせ一覧</h1>
+<%= link_to 'お知らせ作成', admins_top_path %>
+
+<% @notices.each do |notice| %>
+<%= notice.id %>
+<%= notice.created_at %>
+<%= notice.title %>
+<%= link_to '詳細',admins_notice_path(notice.id) %>
+<%= link_to '編集',edit_admins_notice_path(notice.id) %>
+<% end %>

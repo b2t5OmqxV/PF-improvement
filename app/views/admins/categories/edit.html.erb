@@ -1,0 +1,18 @@
+<h1>カテゴリ編集</h1>
+
+<%= form_for(@categorie, url:admins_categories_path) do |f| %>
+<div class='field'>
+  <%= f.label :カテゴリ名 %>
+  <%= f.text_field :category, class: 'category' %>
+</div>
+
+<div class='field'>
+  <%= f.label :有効寿命設定月数 %>
+  <%= f.text_field :effective_life, class: 'effective_life' %>
+</div>
+
+<div class='actions'>
+	  <%= f.submit '更新' %>
+</div>
+
+<% end %>

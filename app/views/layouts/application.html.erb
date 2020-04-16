@@ -26,7 +26,7 @@
           <span><%= link_to 'カテゴリ', admins_categories_path %></span>
         </li>
         <li>
-          <span><%= link_to 'ログアウト', destroy_admin_session, method: :delete %></span>
+          <span><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></span>
         </li>
         <% elsif user_signed_in? %>
         <li>
