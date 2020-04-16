@@ -1,0 +1,19 @@
+<h1>お知らせ編集</h1>
+
+<%= form_for(@notice, url: admins_notice_path(@notice.id)) do |f| %>
+
+<div class='field'>
+	<%= f.label :タイトル %>
+	<%= f.text_field :title, class: 'title' %>
+</div>
+
+<div class='field'>
+	<%= f.label :内容 %>
+	<%= f.text_area :text, class: 'text' %>
+</div>
+
+<div class='actions'>
+	  <%= f.submit '変更' %>
+</div>
+
+<% end %>

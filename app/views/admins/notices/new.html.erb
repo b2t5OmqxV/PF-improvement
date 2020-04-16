@@ -1,0 +1,24 @@
+<h1>管理者トップ画面</h1>
+
+<h2>お知らせ作成</h2>
+<%= form_for(@notice_new, url: admins_notices_path) do |f| %>
+
+<div class='field'>
+	<%= f.label :タイトル %>
+	<%= f.text_field :title, class: 'title' %>
+</div>
+
+<div class='field'>
+	<%= f.label :内容 %>
+	<%= f.text_area :text, class: 'text' %>
+</div>
+
+<div class='actions'>
+	  <%= f.submit '登録' %>
+</div>
+
+<% end %>
+
+<h3>ユーザー数<%= @users.count %>人</h3>
+
+<h3>家電情報投稿数<%= @appliances.count %>件</h3>

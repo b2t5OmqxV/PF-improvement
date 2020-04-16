@@ -1,15 +1,45 @@
 class Admins::NoticesController < ApplicationController
-  def new; end
+  def new
+    @notice_new = Notice.new
+    @users = User.all
+    @appliances = Appliance.all
+    # @categories = Categories.all
+  end
 
-  def create; end
+  def create
+    @notice_new = Notice.new(notice_params)
+    @notice_new.admin = current_admin
+    @notice_new.save
+    redirect_to admins_notices_path
+  end
 
-  def index; end
+  def index
+    @notices = Notice.all
+  end
 
-  def show; end
+  def show
+    @notice = Notice.find(params[:id])
+  end
 
-  def edit; end
+  def edit
+    @notice = Notice.find(params[:id])
+  end
 
-  def update; end
+  def update
+    @notice = Notice.find(params[:id])
+    @notice.update(notice_params)
+    redirect_to admins_notice_path(@notice.id)
+  end
 
-  def destroy; end
+  def destroy
+    @notice = Notice.find(params[:id])
+    @notice.destroy
+    redirect_to admins_notices_path
+  end
+
+  private
+
+  def notice_params
+    params.require(:notice).permit(:admin_id, :title, :text)
+  end
 end

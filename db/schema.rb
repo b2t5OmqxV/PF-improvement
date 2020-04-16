@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2020_04_13_112724) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "admin_name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
@@ -45,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_112724) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category", null: false
-    t.decimal "effective_life", null: false
+    t.integer "effective_life", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

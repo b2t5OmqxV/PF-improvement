@@ -2,7 +2,7 @@ class CreateCategories < ActiveRecord::Migration[5.2]
   def change
     create_table :categories do |t|
       t.string  :category, null: false
-      t.decimal :effective_life, null: false
+      t.integer :effective_life, null: false
 
       t.timestamps
     end

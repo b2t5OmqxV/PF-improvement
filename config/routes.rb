@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     resources :appliances, only: [:index, :show, :edit, :update, :destroy]
     resources :categories, only: [:create, :index, :edit, :update, :destroy]
-    resources :notices, only: [:create, :index, :show, :edit, :update, :destroy]
+    resources :notices
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
