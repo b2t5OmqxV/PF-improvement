@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_112724) do
     t.date "purchase_day", null: false
     t.date "warranty_period", null: false
     t.date "start_operation", null: false
+    t.date "useful_life", null: false
     t.string "place", default: "屋内:", null: false
     t.string "frequency", default: "ほぼ毎日(年中)", null: false
     t.text "detail", default: ""

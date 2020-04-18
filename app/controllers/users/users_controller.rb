@@ -1,6 +1,7 @@
 class Users::UsersController < ApplicationController
   def index
     @users = User.all
+    @notices = Notice.all
   end
 
   def show

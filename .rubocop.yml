@@ -27,9 +27,9 @@ Documentation:
 ClassAndModuleChildren:
   Enabled: false
 
-#文字数の最大値:200
+#文字数の最大値:250
 Metrics/LineLength:
-  Max: 200
+  Max: 250
 
 #マジックコメント(ソースファイルの文字コードを指定)使用すると文字列のリテラル(直接記述した定数)がデフォルトで不変を回避
 Style/FrozenStringLiteralComment:

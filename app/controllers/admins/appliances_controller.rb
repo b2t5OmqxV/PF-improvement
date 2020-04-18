@@ -28,6 +28,6 @@ class Admins::AppliancesController < ApplicationController
   private
 
   def appliance_params
-    params.require(:appliance).permit(:user_id, :category_id, :maker, :image, :product, :model, :purchase_amount, :purchase_day, :warranty_period, :start_operation, :place, :frequency, :detail)
+    params.require(:appliance).permit(:user_id, :category_id, :maker, :image, :product, :model, :purchase_amount, :purchase_day, :warranty_period, :start_operation, :useful_life, :place, :frequency, :detail)
   end
 end

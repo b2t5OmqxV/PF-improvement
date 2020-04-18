@@ -6,15 +6,17 @@ class Users::AppliancesController < ApplicationController
   end
 
   def new
-    @appliance = Appliance.new
+    @categories = Categorie.all
+    @appliance_new = Appliance.new
   end
 
   def create
     @appliance_new = Appliance.new(appliance_params)
     @appliance_new.user = current_user
-    logger.debug @appliance_new.errors.inspect
+    @appliance_new.useful_life = @appliance_new.after_month
+    binding.pry
     if @appliance_new.save
-      redirect_to appliance_path(id: @appliance_new.id)
+      redirect_to appliance_path(@appliance_new.id)
     else
       render action: :new
     end
@@ -54,6 +56,10 @@ class Users::AppliancesController < ApplicationController
   private
 
   def appliance_params
-    params.require(:appliance).permit(:user_id, :category_id, :maker, :image, :product, :model, :purchase_amount, :purchase_day, :warranty_period, :start_operation, :place, :frequency, :detail)
+    params.require(:appliance).permit(:user_id, :category_id, :maker, :image, :product, :model, :purchase_amount, :purchase_day, :warranty_period, :start_operation, :useful_life, :place, :frequency, :detail)
+  end
+
+  def appliance_after_month
+    appliance_params.merge(@appliance_new.after_month)
   end
 end

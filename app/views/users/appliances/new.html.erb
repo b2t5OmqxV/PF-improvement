@@ -1,10 +1,13 @@
 <h1>新規家電登録</h1>
 <%= form_for(@appliance_new) do |f| %>
 
-<p>カテゴリ</p>
+<div class='field'>
+  <%= f.label :カテゴリ %>
+  <%= f.collection_select :category_id, Categorie.all, :id, :category, class: 'category' %>
+</div>
 
 <div class='field'>
-	<%= f.label :プロフィール画像 %>
+	<%= f.label :家電画像 %>
 	<%= f.attachment_field :image, class: 'image' %>
 </div>
 
