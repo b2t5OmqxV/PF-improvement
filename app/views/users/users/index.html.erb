@@ -2,6 +2,11 @@
 <h1>カテゴリ</h1>
 
 <h1>お知らせ</h1>
+<% @notices.each do |notice| %>
+<%= notice.created_at %>
+<%= notice.title %>
+<%= link_to '詳細',notice_path(notice.id) %>
+<% end %>
 
 <h2>フォロー、フォロワーランキング</h2>
 

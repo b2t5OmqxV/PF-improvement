@@ -49,11 +49,8 @@
           <span><%= link_to 'ログイン', new_user_session_path %></span>
         </li>
         <% else request.fullpath == '/admins/sign_in' %>
-        <li>
-          <span><%= link_to 'ログイン', new_admin_session_path %></span>
-        </li>
-        </ul>
         <% end %>
+      </ul>
       </haeder>
 
     <%= yield %>

@@ -5,6 +5,11 @@
 <p>家電製品の購入日や稼働開始日を登録すると保証期限や有効寿命が経過する前に通知を行い、他の利用者の投稿内容や稼働期間を閲覧できることで買い替え時の参考にできるサイトです。</p>
 
 <h1>お知らせ</h1>
+<% @notices.each do |notice| %>
+<%= notice.created_at %>
+<%= notice.title %>
+<%= link_to '詳細',notice_path(notice.id) %>
+<% end %>
 
 <h2>ランキング</h2>
 
