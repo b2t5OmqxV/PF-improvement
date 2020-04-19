@@ -1,6 +1,6 @@
 <h1>カテゴリ登録・一覧</h1>
 
-<%= form_for(@categorie_new, url:admins_categories_path) do |f| %>
+<%= form_for(@category_new, url:admins_categories_path) do |f| %>
 <div class='field'>
   <%= f.label :カテゴリ名 %>
   <%= f.text_field :category, class: 'category' %>
@@ -18,10 +18,10 @@
 <% end %>
 
 <h2>カテゴリ一覧</h2>
-<% @categories.each do |categorie| %>
-<%= categorie.category %>
-<%= categorie.effective_life %>
-<%= link_to '編集',edit_admins_category_path(categorie.id) %>
-<%= link_to '削除',admins_category_path(categorie.id), method: :delete %>
+<% @categories.each do |category| %>
+<%= category.category %>
+<%= category.effective_life %>
+<%= link_to '編集',edit_admins_category_path(category.id) %>
+<%= link_to '削除',admins_category_path(category.id), method: :delete %>
 <% end %>
 

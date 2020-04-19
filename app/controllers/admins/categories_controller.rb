@@ -1,34 +1,34 @@
 class Admins::CategoriesController < ApplicationController
   def create
-    @categorie_new = Categorie.new(categorie_params)
-    @categorie_new.save
+    @category_new = Category.new(category_params)
+    @category_new.save
     redirect_to request.referer
   end
 
   def index
-    @categorie_new = Categorie.new
-    @categories = Categorie.all
+    @category_new = Category.new
+    @categories = Category.all
   end
 
   def edit
-    @categorie = Categorie.find(params[:id])
+    @category = Category.find(params[:id])
   end
 
   def update
-    @categorie = Categorie.find(params[:id])
-    @categorie.update(categorie_params)
+    @category = Category.find(params[:id])
+    @category.update(category_params)
     redirect_to admins_categories_path
   end
 
   def destroy
-    @categorie = Categorie.find(params[:id])
-    @categorie.destroy
+    @category = Category.find(params[:id])
+    @category.destroy
     redirect_to request.referer
   end
 
   private
 
-  def categorie_params
-    params.require(:categorie).permit(:category, :effective_life)
+  def category_params
+    params.require(:category).permit(:category, :effective_life)
   end
 end

@@ -10,10 +10,10 @@
 <h2>管理家電一覧</h2>
 <% @appliance.each do |appliance| %>
 <%= appliance.id %>
-<%= link_to (appliances.id) do %>
+<%= link_to admins_appliance_path(appliance.id) do %>
 <%= attachment_image_tag(appliance, :image, :fill, 50, 50, fallback: 'no_image.jpg', size:'50x50') %>
 <% end %>
 <%= appliance.created_at %>
 <%= appliance.updated_at %>
-<%= link_to '詳細', admins_appliance(appliance.id) %>
+<%= link_to '詳細', admins_appliance_path(appliance.id) %>
 <% end %>

@@ -1,10 +1,13 @@
 <h1>家電情報編集</h1>
 <%= form_for(@appliance) do |f| %>
 
-<p>カテゴリ</p>
+<div class='field'>
+  <%= f.label :カテゴリ %>
+  <%= f.collection_select :category_id, Category.all, :id, :category, class: 'category' %>
+</div>
 
 <div class='field'>
-	<%= f.label :プロフィール画像 %>
+	<%= f.label :家電画像 %>
 	<%= f.attachment_field :image, class: 'image' %>
 </div>
 
