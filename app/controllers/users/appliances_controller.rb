@@ -1,12 +1,12 @@
 class Users::AppliancesController < ApplicationController
   def top
-    @categories = Categorie.all
+    @categories = Category.all
     @notices = Notice.all
     @appliances = Appliance.all.order(created_at: :desc)
   end
 
   def new
-    @categories = Categorie.all
+    @categories = Category.all
     @appliance_new = Appliance.new
   end
 
@@ -14,7 +14,6 @@ class Users::AppliancesController < ApplicationController
     @appliance_new = Appliance.new(appliance_params)
     @appliance_new.user = current_user
     @appliance_new.useful_life = @appliance_new.after_month
-    binding.pry
     if @appliance_new.save
       redirect_to appliance_path(@appliance_new.id)
     else
@@ -23,7 +22,7 @@ class Users::AppliancesController < ApplicationController
   end
 
   def index
-    @categories = Categorie.all
+    @categories = Category.all
     @notices = Notice.all
     @users = User.all
     @appliances = Appliance.all
@@ -40,7 +39,8 @@ class Users::AppliancesController < ApplicationController
   def update
     @appliance = Appliance.find(params[:id])
     @appliance.user = current_user
-    if @appliance.update
+    @appliance.useful_life = @appliance.after_month
+    if @appliance.update(appliance_params)
       redirect_to appliance_path(id: @appliance)
     else
       render action: :edit
@@ -50,7 +50,7 @@ class Users::AppliancesController < ApplicationController
   def destroy
     @appliance = Appliance.find(params[:id])
     @appliance.destroy
-    redirect_to appliance_path(id: @appliance)
+    redirect_to appliances_path
   end
 
   private

@@ -3,7 +3,7 @@ class Admins::NoticesController < ApplicationController
     @notice_new = Notice.new
     @users = User.all
     @appliances = Appliance.all
-    # @categories = Categories.all
+    @categories = Category.all
   end
 
   def create

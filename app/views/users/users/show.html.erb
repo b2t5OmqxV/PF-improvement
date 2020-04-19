@@ -10,11 +10,11 @@
 <% end %>
 
 <h2>管理家電一覧</h2>
-<% @appliance.each do |appliance| %>
-<%= link_to (appliances.id) do %>
+<% @appliances.each do |appliance| %>
+<%= link_to appliance_path(appliance.id) do %>
 <%= attachment_image_tag(appliance, :image, :fill, 50, 50, fallback: 'no_image.jpg', size:'50x50') %>
 <% end %>
-<%= appliance.category %>
+<%= appliance.category.category %>
 <%= appliance.maker %>
 <%= appliance.product %>
 <% end %>
