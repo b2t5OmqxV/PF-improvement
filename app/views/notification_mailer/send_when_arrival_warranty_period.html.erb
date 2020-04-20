@@ -1,0 +1,16 @@
+<h2><%= @appliance.user.user_name %> 様</h2>
+<p>いつもご利用いただきありがとうございます。<br>
+登録されております家電製品のメーカー保証期間の1ヶ月前になることをお知らせいたします。</p>
+
+<p>
+<ul>
+<li><%= @appliance.maker %></li>
+<li><%= @appliance.product %></li>
+<li><%= @appliance.model %></li>
+<li><%= @appliance.purchase_amount %></li>
+<li><%= @appliance.purchase_day %></li>
+<li><%= @appliance.warranty_period %></li>
+</ul>
+</p>
+
+  <p>今後とも 家電 ChangeRecorder をよろしくお願いいたします。</p>

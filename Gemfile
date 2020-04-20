@@ -71,3 +71,8 @@ gem 'devise'
 
 gem 'refile', github: 'refile/refile', require: 'refile/rails'
 gem 'refile-mini_magick', github: 'refile/refile-mini_magick'
+
+# cron
+gem 'whenever', require: false
+
+gem 'dotenv-rails'
