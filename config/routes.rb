@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
     get 'appliances/top' => 'appliances#top'
     resources :appliances
+    get 'searches' => 'searches#search'
   end
 
    devise_for :admins,controllers: {
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
     resources :appliances, only: [:index, :show, :edit, :update, :destroy]
     resources :categories, only: [:create, :index, :edit, :update, :destroy]
     resources :notices
+    get 'searches' => 'searches#search'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
