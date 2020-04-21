@@ -28,10 +28,13 @@ set :output, 'log/cron.log'
 # every 4.days do
 #   runner "AnotherModel.prune_old_records"
 # end
-every 1.days, at: '11:19 am' do
+every 1.days, at: '00:00 am' do
 
 #Rails内のメソッド実行
 runner 'Appliance.compare_warranty_period'
+
+runner 'Appliance.compare_useful_life'
+
 end
 
 # Learn more: http://github.com/javan/whenever
