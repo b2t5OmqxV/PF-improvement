@@ -32,4 +32,12 @@ class Appliance < ApplicationRecord
       d1 == d2 if NotificationMailer.send_when_arrival_useful_life(appliance).deliver
     end
   end
+
+  def self.search(search, appliance_or_user)
+    if appliance_or_user == '1'
+      Appliance.where(['maker LIKE? OR product LIKE? OR model LIKE?', "%#{search}%", "%#{search}%", "%#{search}%"])
+    else
+      Appliance.all
+    end
+  end
 end
