@@ -14,7 +14,7 @@
 <%= link_to appliance_path(appliance.id) do %>
 <%= attachment_image_tag(appliance, :image, :fill, 50, 50, fallback: 'no_image.jpg', size:'50x50') %>
 <% end %>
-<%= appliance.category.category %>
+<%= appliance.category.category_name %>
 <%= appliance.maker %>
 <%= appliance.product %>
 <% end %>

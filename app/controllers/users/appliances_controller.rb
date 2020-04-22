@@ -25,7 +25,12 @@ class Users::AppliancesController < ApplicationController
     @categories = Category.all
     @notices = Notice.all
     @users = User.all
-    @appliances = Appliance.all
+    if params[:id]
+      @category = Category.find(params[:id])
+      @appliances = @category.appliances.all
+    else
+      @appliances = Appliance.all
+    end
   end
 
   def show

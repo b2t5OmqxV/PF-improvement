@@ -5,7 +5,7 @@
 <% @appliances.each do |appliance| %>
 <%= attachment_image_tag(appliance, :image, :fill, 100, 100, fallback: 'no_image.jpg', size:'100x100') %>
 <%= appliance.user.user_name %>
-<%= appliance.category.category %>
+<%= appliance.category.category_name %>
 <%= appliance.maker %>
 <%= appliance.product %>
 <%= link_to '詳細', admins_appliance_path(appliance.id) %>

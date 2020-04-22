@@ -2,7 +2,12 @@ class Admins::AppliancesController < ApplicationController
   def index
     @categories = Category.all
     @users = User.all
-    @appliances = Appliance.all
+    if params[:id]
+      @category = Category.find(params[:id])
+      @appliances = @category.appliances.all
+    else
+      @appliances = Appliance.all
+    end
   end
 
   def show

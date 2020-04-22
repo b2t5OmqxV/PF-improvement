@@ -75,4 +75,7 @@ gem 'refile-mini_magick', github: 'refile/refile-mini_magick'
 # cron
 gem 'whenever', require: false
 
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
+
 gem 'dotenv-rails'

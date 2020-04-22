@@ -10,11 +10,11 @@ Admin.create!(
   [
 	  {
       email: 'testman@test.com',
-      password: 'aaa111',
+      password: '111111',
     },
     {
       email: 'testwoman@test.com',
-      password: 'bbb222',
+      password: '222222',
     }
   ]
 )

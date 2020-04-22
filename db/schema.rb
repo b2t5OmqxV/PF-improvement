@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_112724) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "category", null: false
+    t.string "category_name", null: false
     t.integer "effective_life", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
