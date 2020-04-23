@@ -4,9 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :appliances
+  has_many :appliances, dependent: :destroy
 
   attachment :profile_image
+
+  validates :user_name, presence: true, length: { in: 2..30 }
 
   def self.search(search, appliance_or_user)
     if appliance_or_user == '2'

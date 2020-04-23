@@ -1,8 +1,13 @@
 class Admins::CategoriesController < ApplicationController
+  before_action :authenticate_admin!
   def create
     @category_new = Category.new(category_params)
-    @category_new.save
-    redirect_to request.referer
+    if @category_new.save
+      redirect_to request.referer
+    else
+      @categories = Category.all
+      render action: :index
+    end
   end
 
   def index
@@ -16,8 +21,11 @@ class Admins::CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:id])
-    @category.update(category_params)
-    redirect_to admins_categories_path
+    if @category.update(category_params)
+      redirect_to admins_categories_path
+    else
+      render action: :edit
+    end
   end
 
   def destroy
@@ -29,6 +37,6 @@ class Admins::CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:category, :effective_life)
+    params.require(:category).permit(:category_name, :effective_life)
   end
 end

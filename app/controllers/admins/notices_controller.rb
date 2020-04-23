@@ -1,4 +1,5 @@
 class Admins::NoticesController < ApplicationController
+  before_action :authenticate_admin!
   def new
     @notice_new = Notice.new
     @users = User.all
@@ -9,8 +10,14 @@ class Admins::NoticesController < ApplicationController
   def create
     @notice_new = Notice.new(notice_params)
     @notice_new.admin = current_admin
-    @notice_new.save
-    redirect_to admins_notices_path
+    if @notice_new.save
+      redirect_to admins_notices_path
+    else
+      @users = User.all
+      @appliances = Appliance.all
+      @categories = Category.all
+      render action: :new
+    end
   end
 
   def index
@@ -27,8 +34,11 @@ class Admins::NoticesController < ApplicationController
 
   def update
     @notice = Notice.find(params[:id])
-    @notice.update(notice_params)
-    redirect_to admins_notice_path(@notice.id)
+    if @notice.update(notice_params)
+      redirect_to admins_notice_path(@notice.id)
+    else
+      render action: :edit
+    end
   end
 
   def destroy

@@ -1,9 +1,12 @@
+<%= render 'layouts/error_messages', obj:@appliance %>
 <h1>家電情報編集</h1>
 <%= form_for(@appliance) do |f| %>
 
+<%= attachment_image_tag(@appliance, :image, :fill, 100, 100, fallback: 'no_image.jpg', size:'100x100') %>
+
 <div class='field'>
   <%= f.label :カテゴリ %>
-  <%= f.collection_select :category_id, Category.all, :id, :category, class: 'category' %>
+  <%= f.collection_select :category_id, Category.all, :id, :category_name, class: 'category' %>
 </div>
 
 <div class='field'>

@@ -1,9 +1,10 @@
+<%= render 'layouts/error_messages', obj:@appliance_new %>
 <h1>新規家電登録</h1>
 <%= form_for(@appliance_new) do |f| %>
 
 <div class='field'>
   <%= f.label :カテゴリ %>
-  <%= f.collection_select :category_id, Category.all, :id, :category, class: 'category' %>
+  <%= f.collection_select :category_id, Category.all, :id, :category_name, class: 'category' %>
 </div>
 
 <div class='field'>

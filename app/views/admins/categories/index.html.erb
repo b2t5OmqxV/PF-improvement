@@ -1,9 +1,10 @@
+<%= render 'layouts/error_messages', obj:@category_new %>
 <h1>カテゴリ登録・一覧</h1>
 
 <%= form_for(@category_new, url:admins_categories_path) do |f| %>
 <div class='field'>
   <%= f.label :カテゴリ名 %>
-  <%= f.text_field :category, class: 'category' %>
+  <%= f.text_field :category_name, class: 'category' %>
 </div>
 
 <div class='field'>
@@ -19,7 +20,7 @@
 
 <h2>カテゴリ一覧</h2>
 <% @categories.each do |category| %>
-<%= category.category %>
+<%= category.category_name %>
 <%= category.effective_life %>
 <%= link_to '編集',edit_admins_category_path(category.id) %>
 <%= link_to '削除',admins_category_path(category.id), method: :delete %>

@@ -1,8 +1,14 @@
 class Admins::AppliancesController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @categories = Category.all
     @users = User.all
-    @appliances = Appliance.all
+    if params[:id]
+      @category = Category.find(params[:id])
+      @appliances = @category.appliances.all
+    else
+      @appliances = Appliance.all
+    end
   end
 
   def show
@@ -16,8 +22,11 @@ class Admins::AppliancesController < ApplicationController
   def update
     @appliance = Appliance.find(params[:id])
     @appliance.useful_life = @appliance.after_month
-    @appliance.update(appliance_params)
-    redirect_to admins_appliance_path(@appliance.id)
+    if @appliance.update(appliance_params)
+      redirect_to admins_appliance_path(@appliance.id)
+    else
+      render action: :edit
+    end
   end
 
   def destroy

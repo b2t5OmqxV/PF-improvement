@@ -1,3 +1,4 @@
+<%= render 'layouts/error_messages', obj:@notice %>
 <h1>お知らせ編集</h1>
 
 <%= form_for(@notice, url: admins_notice_path(@notice.id)) do |f| %>
