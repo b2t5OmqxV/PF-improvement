@@ -79,3 +79,7 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 
 gem 'dotenv-rails'
+
+group :production do
+  gem 'mysql2'
+end
