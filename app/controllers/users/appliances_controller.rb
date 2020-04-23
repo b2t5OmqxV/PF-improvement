@@ -1,4 +1,6 @@
 class Users::AppliancesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :correct_user, only: %i[edit update]
   def top
     @categories = Category.all
     @notices = Notice.all
@@ -46,7 +48,7 @@ class Users::AppliancesController < ApplicationController
     @appliance.user = current_user
     @appliance.useful_life = @appliance.after_month
     if @appliance.update(appliance_params)
-      redirect_to appliance_path(id: @appliance)
+      redirect_to appliance_path(@appliance.id)
     else
       render action: :edit
     end
@@ -59,6 +61,12 @@ class Users::AppliancesController < ApplicationController
   end
 
   private
+
+  def correct_user
+    @appliance = Appliance.find(params[:id])
+    @user = @appliance.user
+    redirect_to appliances_path if @user != current_user
+  end
 
   def appliance_params
     params.require(:appliance).permit(:user_id, :category_id, :maker, :image, :product, :model, :purchase_amount, :purchase_day, :warranty_period, :start_operation, :useful_life, :place, :frequency, :detail)

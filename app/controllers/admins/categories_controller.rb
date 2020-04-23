@@ -1,4 +1,5 @@
 class Admins::CategoriesController < ApplicationController
+  before_action :authenticate_admin!
   def create
     @category_new = Category.new(category_params)
     if @category_new.save

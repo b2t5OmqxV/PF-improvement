@@ -1,4 +1,5 @@
 class Admins::NoticesController < ApplicationController
+  before_action :authenticate_admin!
   def new
     @notice_new = Notice.new
     @users = User.all
