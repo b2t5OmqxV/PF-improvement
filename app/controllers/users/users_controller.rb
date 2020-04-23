@@ -1,5 +1,6 @@
 class Users::UsersController < ApplicationController
   def index
+    @categories = Category.all
     @users = User.all
     @notices = Notice.all
   end

@@ -21,8 +21,11 @@ class Admins::AppliancesController < ApplicationController
   def update
     @appliance = Appliance.find(params[:id])
     @appliance.useful_life = @appliance.after_month
-    @appliance.update(appliance_params)
-    redirect_to admins_appliance_path(@appliance.id)
+    if @appliance.update(appliance_params)
+      redirect_to admins_appliance_path(@appliance.id)
+    else
+      render action: :edit
+    end
   end
 
   def destroy

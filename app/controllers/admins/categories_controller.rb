@@ -1,8 +1,12 @@
 class Admins::CategoriesController < ApplicationController
   def create
     @category_new = Category.new(category_params)
-    @category_new.save
-    redirect_to request.referer
+    if @category_new.save
+      redirect_to request.referer
+    else
+      @categories = Category.all
+      render action: :index
+    end
   end
 
   def index
@@ -16,8 +20,11 @@ class Admins::CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:id])
-    @category.update(category_params)
-    redirect_to admins_categories_path
+    if @category.update(category_params)
+      redirect_to admins_categories_path
+    else
+      render action: :edit
+    end
   end
 
   def destroy
