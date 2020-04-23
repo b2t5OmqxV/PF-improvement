@@ -1,0 +1,24 @@
+<h1><strong>検索結果</strong></h1><br>
+<% if @appliance_or_user == "1" %>
+
+<h2>家電検索一覧</h2><br>
+<% @appliances.each do |appliance| %>
+<%= attachment_image_tag(appliance, :image, :fill, 100, 100, fallback: 'no_image.jpg', size:'100x100') %>
+<%= appliance.user.user_name %>
+<%= appliance.category.category_name %>
+<%= appliance.maker %>
+<%= appliance.product %>
+<%= link_to '詳細', admins_appliance_path(appliance.id) %>
+<% end %>
+
+<% else @appliance_or_user == "2" %>
+<h2>ユーザー検索一覧</h2><br>
+<% @users.each do |user| %>
+<%= user.id %>
+<%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: 'no_image.jpg', size:'100x100') %>
+<%= user.user_name %>
+<%= user.email %>
+<%= link_to '詳細', admins_user_path(user) %>
+<% end %>
+
+<% end %>

@@ -1,0 +1,69 @@
+<%= render 'layouts/error_messages', obj:@appliance_new %>
+<h1>新規家電登録</h1>
+<%= form_for(@appliance_new) do |f| %>
+
+<div class='field'>
+  <%= f.label :カテゴリ %>
+  <%= f.collection_select :category_id, Category.all, :id, :category_name, class: 'category' %>
+</div>
+
+<div class='field'>
+	<%= f.label :家電画像 %>
+	<%= f.attachment_field :image, class: 'image' %>
+</div>
+
+<div class='field'>
+  <%= f.label :メーカー %>
+  <%= f.text_field :maker, class: 'maker' %>
+</div>
+
+<div class='field'>
+  <%= f.label :品名 %>
+  <%= f.text_field :product, class: 'product' %>
+</div>
+
+<div class='field'>
+  <%= f.label :型番 %>
+  <%= f.text_field :model, class: 'model' %>
+</div>
+
+<div class='field'>
+  <%= f.label :購入金額 %>
+  <%= f.text_field :purchase_amount, class: 'purchase_amount' %>
+</div>
+
+<div class='field'>
+  <%= f.label :購入日 %>
+  <%= f.date_field :purchase_day, class: 'purchase_day' %>
+</div>
+
+<div class='field'>
+  <%= f.label :メーカー保証終了日 %>
+  <%= f.date_field :warranty_period, class: 'warranty_period' %>
+</div>
+
+<div class='field'>
+  <%= f.label :稼働開始日 %>
+  <%= f.date_field :start_operation, class: 'start_operation' %>
+</div>
+
+<div class='field'>
+    <%= f.label :使用場所 %>
+    <%= f.select :place, ['屋内', '屋外', '携帯', '車内'], class: 'place' %>
+</div>
+
+<div class='field'>
+    <%= f.label :使用頻度 %>
+    <%= f.select :frequency, ['ほぼ毎日(年中)', '週に2〜3日', '月に1~2日程度','半年程度', '3~4ヶ月程度', '1~2ヶ月程度', '年に1日程度'], class: 'frequency' %>
+</div>
+
+<div class='field'>
+	<%= f.label :詳細内容 %>
+	<%= f.text_area :detail, class: 'detail' %>
+</div>
+
+<div class='actions'>
+	  <%= f.submit '投稿する' %>
+</div>
+
+<% end %>

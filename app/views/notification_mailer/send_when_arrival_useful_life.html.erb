@@ -1,0 +1,15 @@
+<h2><%= @appliance.user.user_name %> 様</h2>
+<p>いつもご利用いただきありがとうございます。<br>
+登録されております家電製品の有効寿命期間の1ヶ月前になることをお知らせいたします。</p>
+
+<p>
+メーカー名：<%= @appliance.maker %><br>
+製品名　　：<%= @appliance.product %><br>
+型番　　　：<%= @appliance.model %><br>
+購入金額　：<%= @appliance.purchase_amount %><br>
+購入日　　：<%= @appliance.purchase_day %><br>
+稼働開始日：<%= @appliance.start_operation %><br>
+有効寿命日：<%= @appliance.useful_life %><br>
+</p>
+
+<p>今後とも 家電 ChangeRecorder をよろしくお願いいたします。</p>

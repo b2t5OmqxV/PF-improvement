@@ -1,0 +1,2 @@
+module Admins::AppliancesHelper
+end

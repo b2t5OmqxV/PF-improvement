@@ -1,0 +1,22 @@
+<%= link_to '新規投稿', new_appliance_path %>
+<h1>カテゴリ</h1>
+<% @categories.each do |category| %>
+<%= link_to ({controller: 'users/appliances', action: 'index', id: category.id }) do %>
+<%= category.category_name %>
+<% end %>
+<% end %>
+
+<h1>お知らせ</h1>
+<% @notices.each do |notice| %>
+<%= notice.created_at %>
+<%= notice.title %>
+<%= link_to '詳細',notice_path(notice.id) %>
+<% end %>
+
+<h1>ユーザーの一覧</h1>
+<% @users.each do |user| %>
+<%= user.id %>
+<%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: 'no_image.jpg', size:'100x100') %>
+<%= user.user_name %>
+<%= link_to '詳細', user_path(user.id) %>
+<% end %>
