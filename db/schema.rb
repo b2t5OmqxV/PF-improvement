@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_112724) do
     t.date "useful_life", null: false
     t.string "place", default: "屋内:", null: false
     t.string "frequency", default: "ほぼ毎日(年中)", null: false
-    t.text "detail", default: ""
+    t.text "detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_112724) do
     t.string "user_name", null: false
     t.string "gender", default: "無回答", null: false
     t.string "profile_image_id", default: ""
-    t.text "introduction", default: ""
+    t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
