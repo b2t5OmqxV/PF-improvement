@@ -35,3 +35,4 @@ Metrics/LineLength:
 #マジックコメント(ソースファイルの文字コードを指定)使用すると文字列のリテラル(直接記述した定数)がデフォルトで不変を回避
 Style/FrozenStringLiteralComment:
   Enabled: false
+
