@@ -45,5 +45,3 @@ set :linked_files, %w{config/master.key .env}
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
-
-server '18.177.252.55', user: 'ec2-user', roles: %w{app web db}
