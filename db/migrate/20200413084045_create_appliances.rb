@@ -14,7 +14,7 @@ class CreateAppliances < ActiveRecord::Migration[5.2]
       t.date     :useful_life,null: false
       t.string   :place,null: false, default: "屋内:"
       t.string   :frequency,null: false, default: "ほぼ毎日(年中)"
-      t.text     :detail,default: ""
+      t.text     :detail
 
       t.timestamps
     end

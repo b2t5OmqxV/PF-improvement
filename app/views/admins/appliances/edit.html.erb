@@ -2,7 +2,7 @@
 <h1>家電情報編集</h1>
 <%= form_for(@appliance, url: admins_appliance_path) do |f| %>
 
-<%= attachment_image_tag(@appliance, :image, :fill, 100, 100, fallback: 'no_image.jpg', size:'100x100') %>
+<%= attachment_image_tag(@appliance, :image, :fill, 100, 100, fallback: 'none_image.jpg', size:'100x100') %>
 
 <div class='field'>
   <%= f.label :カテゴリ %>
