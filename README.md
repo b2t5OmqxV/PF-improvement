@@ -32,3 +32,4 @@
 ### 機能一覧(List of Functions)
 
  https://docs.google.com/spreadsheets/d/1yHiu74x7-oiRlft3a9ZHBMxAUtx9mrMjt_N7ipPeoZk/edit#gid=0 
+
