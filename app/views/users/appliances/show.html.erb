@@ -1,7 +1,7 @@
 <%= link_to '新規投稿', new_appliance_path %>
 <h1>家電情報詳細</h1>
 <%= @appliance.category.category_name %>
-<%= attachment_image_tag(@appliance, :image, :fill, 100, 100, fallback: 'no_image.jpg', size:'100x100') %>
+<%= attachment_image_tag(@appliance, :image, :fill, 100, 100, fallback: 'none_image.jpg', size:'100x100') %>
 <%= @appliance.maker %>
 <%= @appliance.product %>
 <%= @appliance.model %>
