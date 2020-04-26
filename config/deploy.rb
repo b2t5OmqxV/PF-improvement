@@ -42,8 +42,9 @@ set :deploy_to, "/home/ec2-user/Portfolio"
 set :rbenv_ruby, '2.5.7'
 set :linked_files, %w{config/master.key .env}
 
+set :whenever_roles, 'batch'
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
-set :whenever_command, "bundle exec whenever"
+set :whenever_command, -> { ["RAILS_ENV=#{fetch(:stage)}", :bundle, :exec, :whenever] } 
 
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
