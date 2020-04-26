@@ -6,7 +6,8 @@
 # Example:
 require File.expand_path(File.dirname(__FILE__) + "/environment")
 # cronを実行する環境変数
-rails_env = ENV['RAILS_ENV'] || :development, :production
+rails_env = ENV['RAILS_ENV'] || :development
+rails_env = ENV['RAILS_ENV/current'] || :production
 # cronを実行する環境変数をセット
 set :environment, rails_env
 #
