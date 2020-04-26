@@ -12,71 +12,60 @@
 
   <body>
     <haeder>
-      <div class='py-4 container text-center'>
-      <h1>
-        <%= image_tag 'logo.jpg', size:'50x50' %>
-        <a>Appliances_Change_Recorder</a>
-      </h1>
-      </div>
       <div class='container'>
+      <div class='col-10 col-offset-1'>
+      <div class='py-4 text-center'>
+      <h1>
+        <p>
+        <%= image_tag 'logo.jpg', size:'50x50' %>
+        Appliances_Change_Recorder</p>
+      </h1>
+      <div class='col-1'></div>
+      </div>
+      </div>
+      <!-- <div class='row'> -->
+      <div class='col-12 navbar-nav'>
       <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
+        <div class="collapse navbar-collapse" id="navbarmenu">
         <%= link_to root_path, class: 'navber-logo' do %>
         <%= image_tag 'logo.jpg', size:'50x50' %>
         <% end %>
-      <ul>
         <% if admin_signed_in? %>
-        <li>
-          <span><%= link_to 'お知らせ', admins_notices_path %></span>
-        </li>
-        <li>
-          <span><%= link_to 'ユーザー', admins_users_path %></span>
-        </li>
-        <li>
-          <span><%= link_to '家電', admins_appliances_path %></span>
-        </li>
-        <li>
-          <span><%= link_to 'カテゴリ', admins_categories_path %></span>
-        </li>
-        <li>
-          <span><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></span>
-        </li>
-          <%= form_tag(admins_searches_path, :method => 'get') do %>
+          <a><%= link_to 'お知らせ', admins_notices_path, class:'mx-1 nav-item active nav-link' %></a>
+          <a><%= link_to 'ユーザー', admins_users_path, class:'mx-1 nav-item active nav-link' %></a>
+          <a><%= link_to '家電', admins_appliances_path, class:'mx-1 nav-item active nav-link' %></a>
+          <a><%= link_to 'カテゴリ', admins_categories_path, class:'mx-1 nav-item active nav-link' %></a>
+          <a><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:'mx-3 nav-item active nav-link' %></a>
           <div class='input-group' >
+          <%= form_tag(admins_searches_path, :method => 'get') do %>
           <%= text_field_tag :search %>
           <%= select_tag(:option, options_for_select([['家電製品','1'],['ユーザー','2']])) %>
           <%= submit_tag '検索' , :nil => nil %>
           <% end %>
           </div>
         <% elsif user_signed_in? %>
-        <li>
-          <span><%= link_to 'マイページ', user_path(current_user.id) %></span>
-        </li>
-        <li>
-          <span><%= link_to 'ユーザー', users_path %></span>
-        </li>
-        <li>
-          <span><%= link_to '家電', appliances_path %></span>
-        </li>
-        <li>
-          <span><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></span>
-        </li>
+        <div class='navbar-nav'>
+          <a><%= link_to 'マイページ', user_path(current_user.id), class:'mx-1 nav-item active nav-link'%></a>
+          <a><%= link_to 'ユーザー', users_path, class:'mx-1 nav-item active nav-link'%></a>
+          <a><%= link_to '家電', appliances_path, class:'mx-1 nav-item active nav-link' %></a>
+          <a><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'mx-1 nav-item active nav-link'%></a>
+        </div>
+        <div class='form-inline'>
           <%= form_tag(searches_path, :method => 'get') do %>
-          <div class='input-group' >
           <%= text_field_tag :search %>
           <%= select_tag(:option, options_for_select([['家電製品','1'],['ユーザー','2']])) %>
           <%= submit_tag '検索' , :nil => nil %>
           <% end %>
-          </div>
+        </div>
+
         <% elsif request.fullpath != '/admins/sign_in' %>
-        <li>
-          <span><%= link_to '新規登録', new_user_registration_path %></span>
-        </li>
-        <li>
-          <span><%= link_to 'ログイン', new_user_session_path %></span>
-        </li>
+        <div class='navbar-nav'>
+          <a><%= link_to '新規登録', new_user_registration_path, class:'mx-1 nav-item active nav-link' %></a>
+          <a><%= link_to 'ログイン', new_user_session_path, class:'mx-1 nav-item active nav-link' %></a>
+        </div>
         <% else request.fullpath == '/admins/sign_in' %>
         <% end %>
-      </ul>
+      </div>
       </nav>
     </div>
       </haeder>
@@ -86,6 +75,7 @@
     <footer>
         <p>© 2020_Portfolio/Appliances_change_recorder</p>
     </footer>
+    </div>
 
   </body>
 </html>
