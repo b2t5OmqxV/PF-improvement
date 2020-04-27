@@ -1,45 +1,70 @@
-<h1>家電チェックレコーダーとは</h1>
-
-<h2>サイト概要</h2>
-<p>
-	家電製品の購入日や稼働開始日を登録すると保証期限や有効寿命が経過する前に通知を行い、他の利用者の投稿内容や稼働期間を閲覧できることで買い替え時の参考にできるサイトです。
-</p>
-
-<h2>あなたはこんなことに出会いませんでしたか？</h2>
-
-<div class='about-content'>
-<%= image_tag 'about1.png', size:'100x100'  %>
-<p>突然の故障！！</p>
+<div class='container'>
+  <div class='row'>
+  	<div class='col-1'></div>
+    <div class='col-10'>
+      <h1 class='mt-5 border-bottom border-secondry'>家電チェンジレコーダーとは</h1><br>
+      <h3>サイト概要</h3><br>
+       <p>
+	       家電製品の購入日や稼働開始日を登録すると保証期限や有効寿命が経過する前に通知を行い、他の利用者の投稿内容や稼働期間を閲覧できることで買い替え時の参考にできるサイトです。
+       </p><br>
+      <h4 class='text-center'>あなたはこんなことに出会いませんでしたか？</h4><br>
+      <div class='row'>
+        <div class='col-4 about-content'>
+          <div class="card mx-3">
+            <%= image_tag 'about1.png', class:'image-filed' %>
+          <div class='card-body'>
+            <strong><p class='card-text text-center'>突然の故障！！</p></strong>
+          </div>
+          </div>
+        </div>
+        <div class='col-4 about-content'>
+          <div class="card mx-3">
+            <%= image_tag 'about2.png', class:'image-filed' %>
+          <div class='card-body'>
+            <strong><p class='card-text text-center'>お店が閉店している！！</p></strong>
+          </div>
+          </div>
+        </div>
+        <div class='col-4 about-content'>
+          <div class="card mx-3">
+            <%= image_tag 'about3.png', class:'image-filed' %>
+          <div class='card-body'>
+            <strong><p class='card-text text-center'>急な多額の出費！！</p></strong>
+          </div>
+          </div>
+        </div>
+      </div>
+      <h4 class='my-5 text-center'>
+        もし、故障などを起こす時期がある程度予想できればこんな思いはしませんよね？</h4>
+      <h4 class='my-3 text-center'><strong>
+        下記のサービスをご利用いただくことであなたの日常が保たれます！！</strong></h4>
+      <div class='row'>
+        <div class='col-4 about-content'>
+          <div class="card mx-3">
+            <%= image_tag 'about4.png', class:'image-filed' %>
+          <div class='card-body'>
+            <strong><p class='card-text text-center'>保証期間や有効寿命を通知</p></strong>
+          </div>
+          </div>
+        </div>
+        <div class='col-4 about-content'>
+          <div class="card mx-3">
+            <%= image_tag 'about5.png', class:'image-filed' %>
+          <div class='card-body'>
+            <strong><p class='card-text text-center'>リアルな稼働情報を共有</p></strong>
+          </div>
+          </div>
+        </div>
+        <div class='col-4 about-content'>
+          <div class="card mx-3">
+            <%= image_tag 'about6.png', class:'image-filed' %>
+          <div class='card-body'>
+            <strong><p class='card-text text-center'>買い替え時の判断に繋がる</p></strong>
+          </div>
+          </div>
+        </div>
+      </div>
+      <%= link_to 'さあ、サイトへ', new_user_registration_path, class:'my-5 btn btn-success btn-block' %>
+  </div>
 </div>
 
-<div class='about-content'>
-<%= image_tag 'about2.png', size:'100x100'  %>
-<p>お店が閉店している！！</p>
-</div>
-
-<div class='about-content'>
-<%= image_tag 'about3.png', size:'100x100'  %>
-<p>急な多額の出費！！</p>
-</div>
-
-<h2>
-  もし、故障などを起こす時期がある程度予想できればこんな思いはしませんよね？<br>
-  このサイトを利用いただくと下記のサービスをご提供することであなたの生活を応援します！！
-</h2>
-
-<div class='about-content'>
-<%= image_tag 'about4.png', size:'100x100'  %>
-<p>保証期間や有効寿命をお知らせ</p>
-</div>
-
-<div class='about-content'>
-<%= image_tag 'about5.png', size:'100x100'  %>
-<p>各ユーザーのリアルな稼働状況を家電情報を共有</p>
-</div>
-
-<div class='about-content'>
-<%= image_tag 'about6.png', size:'100x100'  %>
-<p>買い替え時の判断材料に繋がる</p>
-</div>
-
-<%= link_to 'さあ、サイトへ',  new_user_registration_path %>

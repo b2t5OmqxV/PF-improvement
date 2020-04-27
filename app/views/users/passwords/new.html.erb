@@ -1,22 +1,25 @@
-<h2>パスワードを忘れた方</h2>
+<div class='container'>
+  <div class='row'>
+    <div class='col-1'></div>
+    <div class='col-10'>
+      <h2 class='my-4 border-bottom border-secondry'>パスワードを忘れた方</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :ユーザーネーム %><br />
-    <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %>
+      <div class="col-3 mt-2 field">
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="col-3 my-4 actions">
+        <%= f.submit "パスワード再設定メールを送付する", class:'btn btn-info' %>
+      </div>
+      <% end %>
+
+      <%= link_to '戻る', :back, class:'m-3 btn btn-outline-primary' %>
+
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "パスワード再設定メールを送付する" %>
-  </div>
-<% end %>
-
-<%= link_to '戻る', :back %>
+</div>
 
