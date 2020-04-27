@@ -13,69 +13,81 @@
   <body>
     <haeder>
       <div class='container'>
-      <div class='col-10 col-offset-1'>
-      <div class='py-4 text-center'>
-      <h1>
-        <p>
-        <%= image_tag 'logo.jpg', size:'50x50' %>
-        Appliances_Change_Recorder</p>
-      </h1>
-      <div class='col-1'></div>
-      </div>
-      </div>
-      <!-- <div class='row'> -->
-      <div class='col-12 navbar-nav'>
-      <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
-        <div class="collapse navbar-collapse" id="navbarmenu">
-        <%= link_to root_path, class: 'navber-logo' do %>
-        <%= image_tag 'logo.jpg', size:'50x50' %>
-        <% end %>
-        <% if admin_signed_in? %>
-          <a><%= link_to 'お知らせ', admins_notices_path, class:'mx-1 nav-item active nav-link' %></a>
-          <a><%= link_to 'ユーザー', admins_users_path, class:'mx-1 nav-item active nav-link' %></a>
-          <a><%= link_to '家電', admins_appliances_path, class:'mx-1 nav-item active nav-link' %></a>
-          <a><%= link_to 'カテゴリ', admins_categories_path, class:'mx-1 nav-item active nav-link' %></a>
-          <a><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:'mx-3 nav-item active nav-link' %></a>
-          <div class='input-group' >
-          <%= form_tag(admins_searches_path, :method => 'get') do %>
-          <%= text_field_tag :search %>
-          <%= select_tag(:option, options_for_select([['家電製品','1'],['ユーザー','2']])) %>
-          <%= submit_tag '検索' , :nil => nil %>
-          <% end %>
+        <div class='row'>
+          <div class='col-10 col-offset-1'>
+           <div class='py-4 text-center'>
+           <h1>
+           <p><%= image_tag 'logo.jpg', size:'50x50' %>Appliances_Change_Recorder</p>
+           </h1>
+           <div class='col-1'></div>
+           </div>
           </div>
-        <% elsif user_signed_in? %>
-        <div class='navbar-nav'>
-          <a><%= link_to 'マイページ', user_path(current_user.id), class:'mx-1 nav-item active nav-link'%></a>
-          <a><%= link_to 'ユーザー', users_path, class:'mx-1 nav-item active nav-link'%></a>
-          <a><%= link_to '家電', appliances_path, class:'mx-1 nav-item active nav-link' %></a>
-          <a><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'mx-1 nav-item active nav-link'%></a>
         </div>
-        <div class='form-inline'>
-          <%= form_tag(searches_path, :method => 'get') do %>
-          <%= text_field_tag :search %>
-          <%= select_tag(:option, options_for_select([['家電製品','1'],['ユーザー','2']])) %>
-          <%= submit_tag '検索' , :nil => nil %>
-          <% end %>
+        <div class='row'>
+          <div class='col-12 navbar-nav'>
+            <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
+              <div class='collapse navbar-collapse' id='navbarmenu'>
+                <%= link_to root_path, class: 'navber-logo' do %>
+                <%= image_tag 'logo.jpg', size:'50x50' %>
+                <% end %>
+              <% if admin_signed_in? %>
+              <div class='navbar-nav'>
+                <a><%= link_to 'お知らせ', admins_notices_path, class:'mx-1 nav-item active nav-link' %></a>
+                <a><%= link_to 'ユーザー', admins_users_path, class:'mx-1 nav-item active nav-link' %></a>
+                <a><%= link_to '家電', admins_appliances_path, class:'mx-1 nav-item active nav-link' %></a>
+                <a><%= link_to 'カテゴリ', admins_categories_path, class:'mx-1 nav-item active nav-link' %></a>
+                <a><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:'mx-1 nav-item active nav-link' %></a>
+              </div>
+              <div class='collapse navbar-collapse' id='navbarForm'>
+                <div class='input-group' >
+                  <%= form_tag(admins_searches_path, :method => 'get') do %>
+                  <%= text_field_tag :search %>
+                  <%= select_tag(:option, options_for_select([['家電製品','1'],['ユーザー','2']])) %>
+                  <%= submit_tag '検索' , :nil => nil %>
+                  <% end %>
+                </div>
+              </div>
+              <% elsif user_signed_in? %>
+              <div class='navbar-nav'>
+                <a><%= link_to 'マイページ', user_path(current_user.id), class:'mx-1 nav-item active nav-link'%></a>
+                <a><%= link_to 'ユーザー', users_path, class:'mx-1 nav-item active nav-link'%></a>
+                <a><%= link_to '家電', appliances_path, class:'mx-1 nav-item active nav-link' %></a>
+                <a><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'mx-1 nav-item active nav-link'%></a>
+              </div>
+              <div class='collapse navbar-collapse' id='navbarForm'>
+                <div class='form-inline'>
+                  <%= form_tag(searches_path, :method => 'get') do %>
+                  <%= text_field_tag :search %>
+                  <%= select_tag(:option, options_for_select([['家電製品','1'],['ユーザー','2']])) %>
+                  <%= submit_tag '検索' , :nil => nil %>
+                  <% end %>
+                </div>
+              </div>
+              <% elsif request.fullpath != '/admins/sign_in' %>
+              <div class='navbar-nav'>
+                <a><%= link_to '新規登録', new_user_registration_path, class:'mx-1 nav-item active nav-link' %></a>
+                <a><%= link_to 'ログイン', new_user_session_path, class:'mx-1 nav-item active nav-link' %></a>
+              </div>
+              <% else request.fullpath == '/admins/sign_in' %>
+              <% end %>
+              </div>
+            </nav>
+          </div>
         </div>
-
-        <% elsif request.fullpath != '/admins/sign_in' %>
-        <div class='navbar-nav'>
-          <a><%= link_to '新規登録', new_user_registration_path, class:'mx-1 nav-item active nav-link' %></a>
-          <a><%= link_to 'ログイン', new_user_session_path, class:'mx-1 nav-item active nav-link' %></a>
-        </div>
-        <% else request.fullpath == '/admins/sign_in' %>
-        <% end %>
       </div>
-      </nav>
-    </div>
-      </haeder>
+    </haeder>
 
     <%= yield %>
 
-    <footer>
-        <p>© 2020_Portfolio/Appliances_change_recorder</p>
-    </footer>
-    </div>
+        <footer>
+          <div class='container'>
+            <div class='row'>
+              <div class='col-12 py-4 bg-secondary text-white text-center'>
+                <p>© 2020_Portfolio/Appliances_Change_Recorder</p>
+              </div>
+            </div>
+          </div>
+        </footer>
 
   </body>
 </html>
