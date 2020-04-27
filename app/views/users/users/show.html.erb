@@ -1,20 +1,60 @@
-<h1>ユーザー詳細情報</h1>
-<%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: 'no_image.jpg', size:'100x100') %>
-<%= @user.id %>
-<%= @user.user_name %>
-<%= @user.gender %>
-<%= @user.introduction %>
-<% if @user == current_user %>
-<%= link_to 'ユーザー情報編集', edit_user_path %>
-<%= link_to 'パスワードを変更する', edit_user_registration_path %>
-<% end %>
+<div class='container'>
+	<h1 class='my-4 border-bottom border-secondry'>ユーザー詳細情報</h1>
+  <div class='row'>
+    <div class='col-10 offset-1'>
+      <table class='mt-1 table'>
+        <thead>
+          <tr>
+	          <th>ユーザーID</th>
+	          <th>プロフィール画像</th>
+	          <th>ユーザー名</th>
+	          <th>性別</th>
+	          <th>自己紹介</th>
+	          <th colspan='2'></th >
+          </tr>
+        </thead>
+        <tbody>
+        	<tr>
+        	  <td><%= @user.id %></td>
+            <td><%= attachment_image_tag(@user, :profile_image, :fill, 50, 50, fallback: 'no_image.jpg', size:'50x50') %></td>
+            <td><%= @user.user_name %></td>
+            <td><%= @user.gender %></td>
+            <td><%= @user.introduction %></td>
+            <% if @user == current_user %>
+            <td><%= link_to 'ユーザー情報編集', edit_user_path, class:'btn btn-outline-success' %></td>
+            <td><%= link_to 'パスワードを変更する', edit_user_registration_path, class:'btn btn-outline-primary' %></td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
 
-<h2>管理家電一覧</h2>
-<% @appliances.each do |appliance| %>
-<%= link_to appliance_path(appliance.id) do %>
-<%= attachment_image_tag(appliance, :image, :fill, 50, 50, fallback: 'none_image.jpg', size:'50x50') %>
-<% end %>
-<%= appliance.category.category_name %>
-<%= appliance.maker %>
-<%= appliance.product %>
-<% end %>
+      <h2 class='my-4 border-bottom border-secondry text-center'>管理家電一覧</h2>
+      <table class="table table-bordered table-hover text-center">
+	      <thead >
+		      <tr>
+			      <th>家電画像</th>
+			      <th>カテゴリ名</th>
+			      <th>メーカー</th>
+			      <th>製品名</th>
+			      <th>詳細内容</th>
+          </tr>
+	      </thead>
+	      <tbody>
+          <% @appliances.each do |appliance| %>
+          <tr>
+	          <td>
+               <%= link_to appliances_path(appliance.id) do %>
+               <%= attachment_image_tag appliance, :image, :fill, 50, 50, fallback: 'none_image.jpg', size:'50x50' %>
+               <% end %>
+            </td>
+            <td><%= appliance.category.category_name %></td>
+            <td><%= appliance.maker %></td>
+            <td><%= appliance.product %></td>
+            <td><%= link_to '詳細',appliance_path(appliance.id), class:'btn btn-outline-success' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table><br>
+      </div>
+  </div>
+</div>
