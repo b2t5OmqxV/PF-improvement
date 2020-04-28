@@ -25,7 +25,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @notices.first(5).each do |notice| %>
+          <% @notices.each do |notice| %>
           <tr>
             <th><%= notice.created_at.strftime('%Y/%m/%d') %></th>
             <th><%= notice.title %></th>
