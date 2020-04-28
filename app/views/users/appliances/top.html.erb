@@ -31,7 +31,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @notices.first(5).each do |notice| %>
+          <% @notices.each do |notice| %>
           <tr>
             <th><%= notice.created_at.strftime('%Y/%m/%d') %></th>
             <th><%= notice.title %></th>
@@ -53,7 +53,7 @@
           </tr>
 	      </thead>
 	      <tbody>
-          <% @appliances.first(8).each do |appliance| %>
+          <% @appliances.each do |appliance| %>
           <tr>
 	          <td>
                <%= link_to appliances_path(appliance.id) do %>
