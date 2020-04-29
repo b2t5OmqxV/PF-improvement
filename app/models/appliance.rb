@@ -10,7 +10,7 @@ class Appliance < ApplicationRecord
     @category = Category.find(category_id)
     d1 = start_operation
     d2 = @category.effective_life
-    d = d1&.since((d2 - 1).month)
+    d = d1&.since(d2.month)
     self.useful_life = d
   end
 
@@ -31,7 +31,8 @@ class Appliance < ApplicationRecord
     @appliances.each do |appliance|
       d1 = Date.today
       d2 = appliance.useful_life
-      NotificationMailer.send_when_arrival_useful_life(appliance).deliver if d1 == d2
+      d3 = d2.prev_month(1)
+      NotificationMailer.send_when_arrival_useful_life(appliance).deliver if d1 == d3
     end
   end
 
