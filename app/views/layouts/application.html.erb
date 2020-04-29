@@ -67,7 +67,7 @@
               <div class='navbar-nav'>
                 <a><%= link_to '新規登録', new_user_registration_path, class:'mx-1 nav-item active nav-link' %></a>
                 <a><%= link_to 'ログイン', new_user_session_path, class:'mx-1 nav-item active nav-link' %></a>
-                <a class="admin_sign_in"><%= link_to '管理者用ログイン', new_admin_session_path, class:'mx-1 nav-item active nav-link' %></a>
+                <a class='admin_sign_in'><%= link_to '管理者用ログイン', new_admin_session_path, class:'mx-1 nav-item active nav-link' %></a>
               </div>
               <% else request.fullpath == '/admins/sign_in' %>
               <% end %>
