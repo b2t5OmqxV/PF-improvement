@@ -39,7 +39,7 @@
                 <a><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:'mx-1 nav-item active nav-link' %></a>
               </div>
               <div class='collapse navbar-collapse' id='navbarForm'>
-                <div class='admin-serach_form-inline' >
+                <div class='admin-search_form-inline' >
                   <%= form_tag(admins_searches_path, :method => 'get') do %>
                   <%= text_field_tag :search %>
                   <%= select_tag(:option, options_for_select([['家電製品','1'],['ユーザー','2']])) %>
@@ -55,7 +55,7 @@
                 <a><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'mx-1 nav-item active nav-link'%></a>
               </div>
               <div class='collapse navbar-collapse' id='navbarForm'>
-                <div class='user-serach_form-inline'>
+                <div class='user-search_form-inline'>
                   <%= form_tag(searches_path, :method => 'get') do %>
                   <%= text_field_tag :search %>
                   <%= select_tag(:option, options_for_select([['家電製品','1'],['ユーザー','2']])) %>
