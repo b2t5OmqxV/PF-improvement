@@ -6,7 +6,7 @@
       <%= render 'layouts/error_messages', obj:@user %>
 
       <div class='col-3 offset-1 my-3'>
-        <%= attachment_image_tag(@user, :profile_image, format: 'jpg', fallback: 'no_image.jpg', size:'100x100') %>
+        <%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: 'no_image.jpg', size:'100x100') %>
       </div>
 
       <div class='my-3 field'>
