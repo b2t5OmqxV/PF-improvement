@@ -11,7 +11,7 @@
 	        </tr>
 	        <tr>
 	          <th>家電画像</th>
-	          <th><%= attachment_image_tag(@appliance, :image, :fill, 50, 50, fallback: 'none_image.jpg', size:'50x50') %></th>
+	          <th><%= attachment_image_tag @appliance, :image, :fill, 50, 50, fallback: 'none_image.jpg', size:'50x50' %></th>
 	        </tr>
 	        <tr>
 	          <th>メーカー</th>
