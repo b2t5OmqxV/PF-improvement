@@ -50,7 +50,7 @@
           <tr>
           	<td><%= user.id %></td>
 	          <td>
-　　　　　　　　<%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: 'no_image.jpg', size:'50x50') %>
+　　　　　　　　<%= attachment_image_tag(user, :profile_image, format: 'jpg', fallback: 'no_image.jpg', size:'50x50') %>
             </td>
             <td><%= user.user_name %></td>
             <td><%= link_to '詳細', user_path(user.id), class:'btn btn-outline-success' %></td>
