@@ -7,7 +7,7 @@
     <%= render 'layouts/error_messages', obj:@appliance %>
 
     <div class='col-3 offset-2 my-3'>
-      <%= attachment_image_tag(@appliance, :image, format: 'jpg', fallback: 'none_image.jpg', size:'100x100') %>
+      <%= attachment_image_tag(@appliance, :image, :fill, 100, 100, fallback: 'none_image.jpg', size:'100x100') %>
     </div>
 
     <div class='my-3 field'>
