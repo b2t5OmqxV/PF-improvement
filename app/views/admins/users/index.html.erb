@@ -1,7 +1,7 @@
 <div class='container'>
 	<h1 class='my-4 border-bottom border-secondry'>ユーザーの一覧</h1>
   　<div class='row'>
-      <table class="table table-bordered table-hover text-center">
+      <table class='table table-bordered table-hover text-center'>
 	      <thead >
 		      <tr>
 			      <th>ユーザーID</th>
@@ -16,7 +16,7 @@
           <tr>
           	<td><%= user.id %></td>
 	          <td>
-　　　　　　　　<%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: 'no_image.jpg', size:'50x50') %>
+　　　　　　　　<%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: 'no_image.jpg', size:'50x50' %>
             </td>
             <td><%= user.user_name %></td>
             <td><%= user.email %></td>
