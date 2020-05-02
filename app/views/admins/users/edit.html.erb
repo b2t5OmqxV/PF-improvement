@@ -6,12 +6,29 @@
       <%= render 'layouts/error_messages', obj:@user %>
 
       <div class='col-3 offset-1 my-3'>
-        <%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: 'no_image.jpg', size:'100x100') %>
+        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: 'no_image.jpg', size:'100x100', id: :img_prev %>
       </div>
 
-      <div class='my-3 field'>
-	      <%= f.label :プロフィール画像, class: 'col-3 text-center' %>
-	      <%= f.attachment_field :profile_image, class: 'col-6 user_profile_image' %>
+      <div class="'my-3 field">
+        <%= f.label :プロフィール画像, class: 'col-3 text-center' %>
+        <%= f.attachment_field :profile_image, id: 'user_img', class: 'col-6 user_profile_image' %>
+
+      <script type="text/javascript">
+          $(function() {
+            function readURL(input) {
+              if (input.files && input.files[0]) {
+              var reader = new FileReader();
+              reader.onload = function (e) {
+            $('#img_prev').attr('src', e.target.result);
+              }
+              reader.readAsDataURL(input.files[0]);
+              }
+            }
+            $("#user_img").change(function() {
+              readURL(this);
+            });
+          });
+      </script>
       </div>
 
       <div class='my-3 field'>

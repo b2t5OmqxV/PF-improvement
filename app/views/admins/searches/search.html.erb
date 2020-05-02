@@ -21,7 +21,7 @@
           	<td><%= appliance.id %></td>
 	          <td>
                <%= link_to appliances_path(appliance.id) do %>
-               <%= attachment_image_tag(appliance, :image, :fill, 50, 50, fallback: 'none_image.jpg', size:'50x50') %>
+               <%= attachment_image_tag appliance, :image, :fill, 50, 50, fallback: 'none_image.jpg', size:'50x50' %>
                <% end %>
             </td>
             <td><%= appliance.category.category_name %></td>
@@ -50,7 +50,7 @@
           <tr>
           	<td><%= user.id %></td>
 	          <td>
-　　　　　　　　<%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: 'no_image.jpg', size:'50x50') %>
+　　　　　　　　<%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: 'no_image.jpg', size:'50x50' %>
             </td>
             <td><%= user.user_name %></td>
             <td><%= user.email %></td>

@@ -6,14 +6,35 @@
       <%= form_for(@appliance_new) do |f| %>
       <%= render 'layouts/error_messages', obj:@appliance_new %>
 
+      <div class='col-3 offset-2 my-3'>
+        <%= attachment_image_tag @appliance_new, :image, :fill, 100, 100, fallback: 'none_image.jpg', size:'100x100', id: :img_prev %>
+      </div>
+
       <div class='my-3 field'>
         <%= f.label :カテゴリ, class: 'col-2 text-center' %>
         <%= f.collection_select :category_id, Category.all, :id, :category_name, class: 'col-3 category' %>
       </div>
 
       <div class='my-3 field'>
-	      <%= f.label :家電画像, class: 'col-2 text-center' %>
-	      <%= f.attachment_field :image, class: 'col-6 image' %>
+        <%= f.label :家電画像, class: 'col-2 text-center' %>
+        <%= f.attachment_field :image, id: 'image', class: 'col-6 image' %>
+
+      <script type="text/javascript">
+        $(function() {
+          function readURL(input) {
+          if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+          $('#img_prev').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+            }
+          }
+          $("#image").change(function() {
+          readURL(this);
+          });
+        });
+      </script>
       </div>
 
       <div class='my-3 field'>
