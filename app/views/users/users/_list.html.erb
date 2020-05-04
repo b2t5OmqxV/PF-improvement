@@ -1,0 +1,22 @@
+<table class='table table-bordered table-hover text-center'>
+	<thead >
+	<tr>
+	  <th>ユーザーID</th>
+	  <th>プロフィール画像</th>
+	  <th>ユーザーネーム</th>
+	  <th>詳細内容</th>
+  </tr>
+	</thead>
+	<tbody>
+    <% users.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+	  <td>
+　　　 <%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: 'no_image.jpg', size:'50x50' %>
+    </td>
+    <td><%= user.user_name %></td>
+    <td><%= link_to '詳細', user_path(user.id), class:'btn btn-outline-success' %></td>
+  </tr>
+      <% end %>
+  </tbody>
+</table>

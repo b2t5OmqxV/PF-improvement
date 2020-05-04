@@ -1,0 +1,11 @@
+<div class='pt-2 border-bottom border text-center bg-warning'>
+  <h4 class='category-title'>カテゴリ</h4>
+</div>
+
+<div class='mb-5 list-group'>
+  <% categories.each do |category| %>
+    <%= link_to ({controller: 'admins/appliances', action: 'index', id: category.id }) do %>
+    <div class='list-group-item list-group-item-action text-center'><%= category.category_name %></div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,66 +1,15 @@
 <div class='container'>
-	<h1 class='my-4 border-bottom border-secondry'>家電情報一覧</h1>
+	<h1 class='my-4 border-bottom border-secondry'>ユーザー情報一覧</h1>
   <div class='row'>
     <div class='col-4'>
-      <%= link_to '新規投稿', new_appliance_path, class:'my-4 btn btn-success btn-block' %>
-
-      <div class='pt-2 border-bottom border text-center bg-warning'>
-        <h4 class='category-title'>カテゴリ</h4>
-      </div>
-      <div class='mb-5 list-group'>
-        <% @categories.each do |category| %>
-          <%= link_to ({controller: 'users/appliances', action: 'index', id: category.id }) do %>
-          <div class='list-group-item list-group-item-action text-center'><%= category.category_name %></div>
-          <% end %>
-        <% end %>
-      </div>
+      <%= render 'admins/categories/list_user', categories:@categories %>
     </div>
 
     <div class='col-8'>
-      <h2 class='my-4 border-bottom border-secondry text-center'>お知らせ</h2>
-      <table class='table table-hover'>
-        <thead>
-          <tr>
-	          <th>通知日</th>
-	          <th>タイトル</th>
-	          <th>詳細内容</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @notices.each do |notice| %>
-          <tr>
-            <th><%= notice.created_at.strftime('%Y/%m/%d') %></th>
-            <th><%= notice.title %></th>
-            <th><%= link_to '詳細',notice_path(notice.id), class:'btn btn-outline-primary' %></th>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <%= render 'users/notices/list', notices:@notices %>
 
       <h2 class='my-4 border-bottom border-secondry text-center'>ユーザーの一覧</h2>
-      <table class='table table-bordered table-hover text-center'>
-	      <thead >
-		      <tr>
-			      <th>ユーザーID</th>
-			      <th>プロフィール画像</th>
-			      <th>ユーザーネーム</th>
-			      <th>詳細内容</th>
-          </tr>
-	      </thead>
-	      <tbody>
-          <% @users.each do |user| %>
-          <tr>
-          	<td><%= user.id %></td>
-	          <td>
-　　　　　　　　<%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: 'no_image.jpg', size:'50x50' %>
-            </td>
-            <td><%= user.user_name %></td>
-            <td><%= link_to '詳細', user_path(user.id), class:'btn btn-outline-success' %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table><br>
+      <%= render 'users/users/list', users:@users %><br>
     </div>
   </div>
 </div>
-  
