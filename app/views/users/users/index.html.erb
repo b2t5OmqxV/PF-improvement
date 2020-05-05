@@ -1,15 +1,18 @@
 <div class='container'>
 	<h1 class='my-4 border-bottom border-secondry'>ユーザー情報一覧</h1>
   <div class='row'>
+
     <div class='col-4'>
-      <%= render 'admins/categories/list_user', categories:@categories %>
+      <%= render 'admins/categories/list', categories:@categories %>
     </div>
 
     <div class='col-8'>
-      <%= render 'users/notices/list', notices:@notices %>
+      <h2 class='my-4 border-bottom border-secondry text-center'>お知らせ</h2>
+      <%= render 'admins/notices/list', notices:@notices %>
 
       <h2 class='my-4 border-bottom border-secondry text-center'>ユーザーの一覧</h2>
-      <%= render 'users/users/list', users:@users %><br>
+      <%= render 'list', users:@users %><br>
     </div>
+
   </div>
 </div>

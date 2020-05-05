@@ -2,35 +2,10 @@
 	<h1 class='my-4 border-bottom border-secondry'>ユーザー詳細情報</h1>
   <div class='row'>
     <div class='col-10 offset-1'>
-      <table class='mt-1 table'>
-        <thead>
-          <tr>
-	          <th>ユーザーID</th>
-	          <th>プロフィール画像</th>
-	          <th>ユーザー名</th>
-	          <th>性別</th>
-	          <th>自己紹介</th>
-	          <th colspan='2'></th >
-          </tr>
-        </thead>
-        <tbody>
-        	<tr>
-        	  <td><%= @user.id %></td>
-            <td><%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback: 'no_image.jpg', size:'50x50' %></td>
-            <td><%= @user.user_name %></td>
-            <td><%= @user.gender %></td>
-            <td><%= @user.introduction %></td>
-            <% if @user == current_user %>
-            <td><%= link_to 'ユーザー情報編集', edit_user_path, class:'btn btn-outline-success' %></td>
-            <td><%= link_to 'パスワードを変更する', edit_user_registration_path, class:'btn btn-outline-primary' %></td>
-            <% end %>
-          </tr>
-        </tbody>
-      </table>
+      <%= render 'show', user:@user %><br>
 
       <h2 class='my-4 border-bottom border-secondry text-center'>管理家電一覧</h2>
       <%= render 'users/appliances/list', appliances:@appliances %><br>
-
     </div>
   </div>
 </div>
