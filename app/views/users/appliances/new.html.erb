@@ -3,7 +3,10 @@
     <div class='col-10 offset-1'>
 
       <h1 class='mt-3 border-bottom border-secondry' >新規家電登録</h1>
-      <%= render 'users/appliances/form', appliance:@appliance_new %>
+      <%= form_for(@appliance_new) do |f| %>
+      <%= render 'layouts/error_messages', obj:@appliance_new %>
+      <%= render 'form', appliance:@appliance_new, f:f %>
+      <% end %>
 
       <h5 class='mt-3 text-center' >※画像が用意できない場合は、下記をダウンロードして使用下さい！！</h5>
       <div class='ml-3 flex-row'>
@@ -24,6 +27,7 @@
         <%= image_tag 'cat15.jpg', size:'200x200', class:'m-2' %>
         <%= image_tag 'cat16.jpg', size:'200x200', class:'m-2' %>
       </div><br>
+
     </div>
   </div>
 </div>

@@ -11,7 +11,7 @@ class Admins::NoticesController < ApplicationController
     @notice_new = Notice.new(notice_params)
     @notice_new.admin = current_admin
     if @notice_new.save
-      redirect_to admins_notices_path
+      redirect_to admins_notice_path(@notice_new.id)
     else
       @users = User.all
       @appliances = Appliance.all

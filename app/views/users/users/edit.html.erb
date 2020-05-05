@@ -2,7 +2,10 @@
 	<h1 class='my-4 border-bottom border-secondry'>ユーザー情報編集</h1>
   <div class='row'>
     <div class='col-10 offset-1'>
-    <%= render 'users/users/form', user:@user %><br>
+      <%= form_for(@user) do |f| %>
+        <%= render 'layouts/error_messages', obj:@user %>
+        <%= render 'form', user:@user, f:f %><br>
+      <% end %>
     </div>
   </div>
 </div>
