@@ -1,98 +1,11 @@
 <div class='container'>
   <div class='row'>
     <div class='col-10 offset-1'>
-    <h1 class='mt-3 border-bottom border-secondry' >家電情報編集</h1>
-
-    <%= form_for(@appliance) do |f| %>
-    <%= render 'layouts/error_messages', obj:@appliance %>
-
-    <div class='col-3 offset-2 my-3'>
-      <%= attachment_image_tag @appliance, :image, :fill, 100, 100, fallback: 'none_image.jpg', size:'100x100', id: :img_prev %>
-    </div>
-
-    <div class='my-3 field'>
-      <%= f.label :カテゴリ, class: 'col-2 text-center' %>
-      <%= f.collection_select :category_id, Category.all, :id, :category_name, class: 'col-3 category' %>
-    </div>
-
-    <div class='my-3 field'>
-      <%= f.label :家電画像, class: 'col-2 text-center' %>
-      <%= f.attachment_field :image, id: 'image', class: 'col-6 image' %>
-
-    <script type='text/javascript'>
-      $(function() {
-        function readURL(input) {
-        if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-        $('#img_prev').attr('src', e.target.result);
-          }
-          reader.readAsDataURL(input.files[0]);
-          }
-        }
-        $('#image').change(function() {
-          readURL(this);
-        });
-      });
-    </script>
-    </div>
-
-    <div class='my-3 field'>
-     <%= f.label :メーカー, class: 'col-2 text-center' %>
-     <%= f.text_field :maker, class: 'col-6 maker' %>
-    </div>
-
-    <div class='my-3 field'>
-     <%= f.label :品名, class: 'col-2 text-center' %>
-     <%= f.text_field :product, class: 'col-6 product' %>
-    </div>
-
-    <div class='my-3 field'>
-      <%= f.label :型番, class: 'col-2 text-center' %>
-      <%= f.text_field :model, class: 'col-6 model' %>
-    </div>
-
-    <div class='my-3 field'>
-     <%= f.label :購入金額, class: 'col-2 text-center' %>
-     <%= f.text_field :purchase_amount, class: 'col-3 purchase_amount' %>
-    </div>
-
-    <div class='my-3 field'>
-     <%= f.label :購入日, class: 'col-2 text-center' %>
-     <%= f.date_field :purchase_day, class: 'col-3 purchase_day' %>
-    </div>
-
-    <div class='my-3 field'>
-      <%= f.label :保証期間終了日, class: 'col-2 text-center' %>
-      <%= f.date_field :warranty_period, class: 'col-3 warranty_period' %>
-    </div>
-
-    <div class='my-3 field'>
-     <%= f.label :稼働開始日, class: 'col-2 text-center' %>
-     <%= f.date_field :start_operation, class: 'col-3 start_operation' %>
-    </div>
-
-    <div class='my-3 field'>
-      <%= f.label :使用場所, class: 'col-2 text-center' %>
-      <%= f.select :place, ['屋内', '屋外', '携帯', '車内'], class: 'col-3 place' %>
-    </div>
-
-    <div class='my-3 field'>
-      <%= f.label :使用頻度, class: 'col-2 text-center' %>
-      <%= f.select :frequency, ['ほぼ毎日(年中)', '週に2〜3日', '月に1~2日程度','半年程度', '3~4ヶ月程度', '1~2ヶ月程度', '年に1日程度'], class: 'col-3 frequency' %>
-    </div>
-
-    <div class='my-3 field'>
-	   <%= f.label :詳細内容, class: 'col-2 text-center' %>
-	   <%= f.text_area :detail, class: 'col-6 detail' %>
-    </div>
-
-    <div class='my-5 actions'>
-	    <%= f.submit '変更を保存する', class:'btn btn-success btn-block' %>
-    </div>
-
-    <% end %>
+      <h1 class='mt-3 border-bottom border-secondry' >家電情報編集</h1>
+        <%= form_for(@appliance) do |f| %>
+        <%= render 'layouts/error_messages', obj:@appliance %>
+        <%= render 'form', appliance:@appliance, f:f %>
+        <% end %>
     </div>
   </div>
 </div>
-  
