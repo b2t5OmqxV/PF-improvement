@@ -1,17 +1,17 @@
-<table class='table table-bordered table-hover text-center'>
+<table class='table table-bordered table-hover text-center' style='table-layout:fixed;'>
 	<thead>
 		<tr>
-			<th>ユーザーID</th>
-			<th>プロフィール画像</th>
-			<th>ユーザーネーム</th>
-			<th>メールアドレス</th>
-			<th>詳細内容</th>
+			<th style='width: 10%'>ユーザーID</th>
+			<th style='width: 15%'>プロフィール画像</th>
+			<th style='width: 30%'>ユーザーネーム</th>
+			<th style='width: 30%'>メールアドレス</th>
+			<th style='width: 10%'>詳細内容</th>
     </tr>
 	</thead>
 	<tbody>
   <% users.each do |user| %>
     <tr>
-      <td><%= user.id %></td>
+      <th><%= user.id %></th>
 	    <td>
 　　　　 <%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: 'no_image.jpg', size:'50x50' %>
       </td>
