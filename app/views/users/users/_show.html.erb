@@ -1,17 +1,17 @@
-<table class='mt-1 table text-center' style='table-layout:fixed;'>
+<table class='mt-1 table'>
   <thead>
     <tr>
-	    <th style='width: 15%'>ユーザーID</th>
-	    <th style='width: 20%'>プロフィール画像</th>
+	    <th class='text-center' style='width: 15%'>ユーザーID</th>
+	    <th class='text-center' style='width: 20%'>プロフィール画像</th>
 	    <th style='width: 15%'>ユーザー名</th>
 	    <th style='width: 10%'>性別</th>
-	    <th style='width: 40%'>自己紹介</th>
+	    <th class='text-center' style='width: 40%'>自己紹介</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th><%= user.id %></th>
-      <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: 'no_image.jpg', size:'50x50' %></td>
+      <th class='text-center'><%= user.id %></th>
+      <td class='text-center'><%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: 'no_image.jpg', size:'50x50' %></td>
       <td><%= user.user_name %></td>
       <td><%= user.gender %></td>
       <td><%= user.introduction %></td>

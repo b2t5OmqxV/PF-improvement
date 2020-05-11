@@ -36,6 +36,14 @@
   color:#660099;
 }
 
+.table {
+  table-layout: fixed;
+}
+
+.table th,td {
+  overflow-wrap: break-word;
+}
+
 .user_image_td {
 	position: relative;
 }
