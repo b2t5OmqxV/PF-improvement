@@ -35,3 +35,24 @@
 .category-title {
   color:#660099;
 }
+
+.table {
+  table-layout: fixed;
+}
+
+.table th,td {
+  overflow-wrap: break-word;
+}
+
+.user_image_td {
+	position: relative;
+}
+
+.user_image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
