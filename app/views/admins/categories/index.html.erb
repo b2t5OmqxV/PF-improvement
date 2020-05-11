@@ -9,11 +9,11 @@
     <% end %>
 
     <h2 class='mt-3 border-bottom border-secondry'>カテゴリ一覧</h2>
-    <table class='my-5 table text-center' style='table-layout:fixed;'>
+    <table class='my-5 table'>
       <thead>
         <tr>
           <th style='width: 40%'>カテゴリ名</th>
-	        <th style='width: 30%'>有効寿命設定月数</th>
+	        <th class='text-center' style='width: 30%'>有効寿命設定月数</th>
 	        <th style='width: 30%' colspan='1'></th>
         </tr>
       </thead>
@@ -21,7 +21,7 @@
         <% @categories.each do |category| %>
         <tr>
         	<th><%= category.category_name %></th>
-          <td><%= category.effective_life %></td>
+          <td class='text-center'><%= category.effective_life %></td>
           <td>
             <%= link_to '編集',edit_admins_category_path(category.id), class:'mx-1 btn btn-outline-primary' %>
             <%= link_to '削除',admins_category_path(category.id), method: :delete, class:'mx-1 btn btn-outline-danger' %>

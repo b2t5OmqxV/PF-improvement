@@ -7,7 +7,7 @@
   <div class='mb-5 list-group'>
     <% categories.each do |category| %>
       <%= link_to ({controller: 'admins/appliances', action: 'index', id: category.id }) do %>
-      <div class='list-group-item list-group-item-action text-center'><%= category.category_name %></div>
+      <div class='list-group-item list-group-item-action'><%= category.category_name %></div>
       <% end %>
     <% end %>
   </div>
@@ -23,7 +23,7 @@
   <div class='mb-5 list-group'>
     <% categories.each do |category| %>
       <%= link_to ({controller: 'users/appliances', action: 'index', id: category.id }) do %>
-      <div class='list-group-item list-group-item-action text-center'><%= category.category_name %></div>
+      <div class='list-group-item list-group-item-action'><%= category.category_name %></div>
       <% end %>
     <% end %>
   </div>
