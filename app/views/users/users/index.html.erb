@@ -1,5 +1,5 @@
 <div class='container'>
-	<h1 class='my-4 border-bottom border-secondry'>ユーザー情報一覧</h1>
+	<h1 class='pt-4 border-bottom border-primary'>ユーザー情報一覧</h1>
   <div class='row'>
 
     <div class='col-4'>
@@ -7,10 +7,10 @@
     </div>
 
     <div class='col-8'>
-      <h2 class='my-4 border-bottom border-secondry text-center'>お知らせ</h2>
+      <h2 class='my-4 border-bottom border-success text-center'>お知らせ</h2>
       <%= render 'admins/notices/list', notices:@notices %>
 
-      <h2 class='my-4 border-bottom border-secondry text-center'>ユーザーの一覧</h2>
+      <h2 class='my-4 border-bottom border-primary text-center'>ユーザーの一覧</h2>
       <%= render 'list', users:@users %><br>
     </div>
 
