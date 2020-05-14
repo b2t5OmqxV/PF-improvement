@@ -7,17 +7,17 @@
 
     <div class='col-8'>
 
-      <div class='my-3 card'>
+      <div class='my-3 card border-primary'>
         <%= image_tag 'top.jpg', class:'image-filed' %>
-        <h2 class='my-4 border-bottom border-secondry text-center' >ようこそ、家電ChangeRecorderへ</h2>
+        <h2 class='my-4 border-bottom border-primary text-center' >ようこそ、家電ChangeRecorderへ</h2>
         <p class='text-center'>家電製品の購入日や稼働開始日を登録すると保証期限や有効寿命が経過する前に通知を行い、<br>他の利用者の投稿内容や稼働期間を閲覧できることで買い替え時の参考にできるサイトです。</p>
       </div>
 
       <div class='col-12'>
-        <h2 class='my-4 border-bottom border-secondry text-center'>お知らせ</h2>
+        <h2 class='my-4 border-bottom border-success text-center'>お知らせ</h2>
         <%= render 'admins/notices/list', notices:@notices %>
 
-        <h2 class='my-4 border-bottom border-secondry text-center'>家電情報一覧</h2>
+        <h2 class='my-4 border-bottom border-warning text-center'>家電情報一覧</h2>
         <%= render 'list', appliances:@appliances %><br>
       </div>
 

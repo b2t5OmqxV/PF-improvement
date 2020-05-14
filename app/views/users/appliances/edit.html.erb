@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class='col-10 offset-1'>
-      <h1 class='mt-3 border-bottom border-secondry' >家電情報編集</h1>
+      <h1 class='mt-3 border-bottom border-warning'>家電情報編集</h1>
         <%= form_for(@appliance) do |f| %>
         <%= render 'layouts/error_messages', obj:@appliance %>
         <%= render 'form', appliance:@appliance, f:f %>

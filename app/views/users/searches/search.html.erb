@@ -1,12 +1,12 @@
 <div class='container'>
-	<h1 class='my-4 border-bottom border-secondry'>検索結果</h1>
+	<h1 class='pt-4 border-bottom border-info'>検索結果</h1>
 
     <% if @appliance_or_user == '1' %>
-      <h2 class='my-4 border-bottom border-secondry text-center'>家電検索一覧</h2>
+      <h2 class='my-4 border-bottom border-warning text-center'>家電検索一覧</h2>
       <%= render 'users/appliances/list', appliances:@appliances %><br>
 
     <% else @appliance_or_user == '2' %>
-      <h2 class='my-4 border-bottom border-secondry text-center'>ユーザー検索一覧</h2>
+      <h2 class='my-4 border-bottom border-primary text-center'>ユーザー検索一覧</h2>
       <%= render 'users/users/list', users:@users %><br>
     <% end %>
 
