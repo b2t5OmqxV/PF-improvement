@@ -1,20 +1,20 @@
 <div class='container'>
   <div class='row'>
     <div class='col-8 offset-2'>
-    <h1 class='mt-3 border-bottom border-primary' >カテゴリ登録・一覧</h1>
+    <h1 class='my-4 category-border' >カテゴリ登録・一覧</h1>
 
     <%= form_for(@category_new, url:admins_categories_path) do |f| %>
     <%= render 'layouts/error_messages', obj:@category_new %>
     <%= render 'form', category:@category_new, f:f %>
     <% end %>
 
-    <h2 class='mt-3 border-bottom border-primary'>カテゴリ一覧</h2>
-    <table class='my-5 table'>
+    <h2 class='my-4 category-border'>カテゴリ一覧</h2>
+    <table class='mb-5 table category-table'>
       <thead>
         <tr>
-          <th style='width: 40%'>カテゴリ名</th>
-	        <th class='text-center' style='width: 30%'>有効寿命設定月数</th>
-	        <th style='width: 30%' colspan='1'></th>
+          <th style='width: 52%'>カテゴリ名</th>
+	        <th class='text-center' style='width: 25%'>有効寿命設定月数</th>
+	        <th class='text-center' style='width: 23%' colspan='1'>編集 / 削除</th>
         </tr>
       </thead>
       <tbody>
