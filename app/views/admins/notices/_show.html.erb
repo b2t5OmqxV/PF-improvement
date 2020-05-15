@@ -1,5 +1,5 @@
-<table class='my-5 table'>
-  <thead>
+<table class='my-4 table notice-table'>
+  <thead class='table-success'>
     <tr>
     <% if admin_signed_in? %>
       <th class='text-center' style='width: 15%'>お知らせID</th>
@@ -9,8 +9,8 @@
 	    <th style='width: 20%' colspan='1'></th>
     <% else %>
       <th class='text-center' style='width: 15%'>通知日</th>
-      <th class='text-center' style='width: 35%'>タイトル</th>
-      <th class='text-center' style='width: 40%'>詳細内容</th>
+      <th style='width: 35%'>タイトル</th>
+      <th style='width: 40%'>詳細内容</th>
     <% end %>
     </tr>
   </thead>

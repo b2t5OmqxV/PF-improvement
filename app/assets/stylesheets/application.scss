@@ -64,3 +64,44 @@
 .field_with_errors {
   display: contents;
 }
+
+.user-table {
+    border:1px solid #0000EE;
+}
+
+.user-table > thead > tr > th, .user-table > tbody > tr > th, .user-table > tbody > tr > td {
+    border:1px solid #0000EE;
+}
+
+.notice-table {
+    border:1px solid #00BB00;
+}
+
+.notice-table > thead > tr > th, .notice-table > tbody > tr > th, .notice-table > tbody > tr > td {
+    border-top:1px solid #00BB00;
+    border-bottom:1px solid #00BB00;
+}
+
+.appliance-table {
+    border:1px solid #FFBF00;
+}
+
+.appliance-table > thead > tr > th, .appliance-table > tbody > tr > th, .appliance-table > tbody > tr > td {
+    border:1px solid #FFBF00;
+}
+
+.category-table {
+    border:1px solid #4000FF;
+}
+
+.category-table > thead > tr > th, .category-table > tbody > tr > th, .category-table > tbody > tr > td {
+    border:1px solid #4000FF;
+}
+
+.category-table > thead {
+    background-color:#CDA9FB;
+}
+
+.category-border {
+  border-bottom:1px solid #4B4BFD;
+}
