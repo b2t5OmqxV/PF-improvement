@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class='col-10 offset-1'>
-      <h2 class='my-4 border-bottom border-secondry'>ログイン</h2>
+      <h2 class='my-4 border-bottom border-primary'>ログイン</h2>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
         <div class="col-3 mt-2 field">
@@ -22,7 +22,7 @@
 
         <%= link_to '※パスワードを忘れた方はこちらへ', new_user_password_path, class:'m-2 btn btn-outline-primary'%>
 
-      <h2 class='my-4 border-bottom border-secondry' >初めてご利用の方はこちらへ</h2>
+      <h2 class='my-4 border-bottom border-primary' >初めてご利用の方はこちらへ</h2>
 
         <%= link_to '新規登録', new_user_registration_path, class:'col-2 m-2 btn btn-outline-success btn-block' %><br>
 

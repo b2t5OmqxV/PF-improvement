@@ -1,60 +1,60 @@
-<table class='mb-5 table'>
+<table class='mb-5 table appliance-table'>
 	<tbody>
     <tr>
-	    <th>カテゴリ</th>
+	    <th class='table-warning'>カテゴリ</th>
 	    <th><%= appliance.category.category_name %></th>
 	  </tr>
 	  <tr>
-	    <th>家電画像</th>
+	    <th class='table-warning'>家電画像</th>
 	    <th><%= attachment_image_tag appliance, :image, :fill, 50, 50, fallback: 'none_image.jpg', size:'50x50' %></th>
 	  </tr>
 	  <tr>
-	    <th>メーカー</th>
+	    <th class='table-warning'>メーカー</th>
 	    <th><%= appliance.maker %></th>
 	  </tr>
 	  <tr>
-	    <th>品名</th>
+	    <th class='table-warning'>品名</th>
 	    <th><%= appliance.product %></th>
 	  </tr>
 	  <tr>
-	    <th>型番</th>
+	    <th class='table-warning'>型番</th>
 	    <th><%= appliance.model %></th>
 	  </tr>
 	  <tr>
-	    <th>購入金額</th>
+	    <th class='table-warning'>購入金額</th>
 	    <th><%= appliance.purchase_amount %></th>
 	  </tr>
 	  <tr>
-	    <th>購入日</th>
+	    <th class='table-warning'>購入日</th>
 	    <th><%= appliance.purchase_day %></th>
 	  </tr>
 	  <tr>
-	    <th>メーカー保証終了日</th>
+	    <th class='table-warning'>メーカー保証終了日</th>
 	    <th><%= appliance.warranty_period %></th>
 	  </tr>
 	  <tr>
-	    <th>稼働開始日</th>
+	    <th class='table-warning'>稼働開始日</th>
 	    <th><%= appliance.start_operation %></th>
 	  </tr>
 　  <tr>
-	    <th>有効寿命日</th>
+	    <th class='table-warning'>有効寿命日</th>
 	    <th><%= appliance.useful_life %></th>
 	  </tr>
     <tr>
-	    <th>使用場所</th>
+	    <th class='table-warning'>使用場所</th>
 	    <th><%= appliance.place %></th>
 	  </tr>
 　  <tr>
-	    <th>使用頻度</th>
+	    <th class='table-warning'>使用頻度</th>
 	    <th><%= appliance.frequency %></th>
 	  </tr>
     <tr>
-	    <th>詳細内容</th>
+	    <th class='table-warning'>詳細内容</th>
 	    <th><%= appliance.detail %></th>
 	  </tr>
 	  <% if appliance.user == current_user %>
 	  <tr>
-	    <th colspan='1'></th>
+	    <th class='table-warning' colspan='1'></th>
 	    <th>
 	      <%= link_to '編集する', edit_appliance_path, class:'mx-1 btn btn-outline-primary' %>
 	      <%= link_to '削除する', appliance_path(appliance.id), method: :delete, class:'mx-1 btn btn-outline-danger' %>
@@ -62,16 +62,13 @@
 	  </tr>
 	  <% elsif admin_signed_in? %>
 	  <tr>
-	    <th colspan='1'></th>
+	    <th class='table-warning' colspan='1'></th>
 	    <th>
 	      <%= link_to '編集する', edit_admins_appliance_path, class:'mx-1 btn btn-outline-primary' %>
 	      <%= link_to '削除する', admins_appliance_path(appliance.id), method: :delete, class:'mx-1 btn btn-outline-danger' %>
 	    </th>
 	  </tr>
     <% else %>
-    <tr>
-      <th colspan='2'></th>
-    </tr>
 	  <% end %>
   </tbody>
 </table>
