@@ -26,9 +26,3 @@
 家電製品の購入日や稼働開始日を投稿することで自身が使用している製品の保証・稼働期間を管理する。  
 製品の保証・稼働期間が近づくと利用者へメールにて通知を行う。  
 投稿された情報から買い換えを行う際の判断材料として閲覧する。  
-
-## 設計書(design book)
-
-### 機能一覧(List of Functions)
-
- https://docs.google.com/spreadsheets/d/1yHiu74x7-oiRlft3a9ZHBMxAUtx9mrMjt_N7ipPeoZk/edit#gid=0 
